@@ -83,8 +83,6 @@ export default function Header({ title, subTitle }) {
                 layout="fullWidth"
                 placeholder="blurred"
                 alt="hero image"
-                width="500"
-                height="400"
               />
             </Col>
           </Row>
