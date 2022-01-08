@@ -25,6 +25,16 @@ export default function LocaleCard() {
         <section className="locale-card p-3">
         <div className="container">
             <div className="row">
+                <div className="col-12 col-xl-6 mx-auto p-3 text-center">
+                    <StaticImage 
+                    src="../images/interior-bathroom-design-to-finish.jpg" 
+                    alt="from design to finish" 
+                    className="mt-5 mx-auto rounded shadow"
+                    loading="lazy"
+                    layout="fullWidth"
+                    placeholder="blurred"
+                    />
+                </div>
                 <div className="col-12 col-xl-6 mx-auto p-3">
                     <h3>{title}</h3>
                     <p className="leader">
@@ -35,16 +45,6 @@ export default function LocaleCard() {
                         Expedita iure, quisquam ad illo nobis nihil asperiores velit, id nostrum vel assumenda exercitationem perspiciatis rem. Quis odit repudiandae illo eum rerum deleniti neque! Cupiditate assumenda optio dolorem tempora consequuntur?
                     </p>
                     <CallNow />
-                </div>
-                <div className="col-12 col-xl-6 mx-auto p-3 text-center">
-                    <StaticImage 
-                    src="../images/interior-bathroom-design-to-finish.jpg" 
-                    alt="from design to finish" 
-                    className="mt-5 mx-auto rounded shadow"
-                    loading="lazy"
-                    layout="fullWidth"
-                    placeholder="blurred"
-                    />
                 </div>
             </div>
         </div>

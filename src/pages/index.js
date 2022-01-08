@@ -23,7 +23,6 @@ const IndexPage = () => {
     <MainLayout>
     <Header title={title} subTitle={subTitle} />
     <LocaleCard />
-    <BookNow />
     </MainLayout>
     </>
   )

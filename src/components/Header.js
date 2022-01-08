@@ -28,7 +28,6 @@ export default function Header({ title, subTitle }) {
       }
     }
   `);
-  console.log(data);
   const image = getImage(data.file.childImageSharp);
 
   useEffect(() => {
@@ -39,7 +38,7 @@ export default function Header({ title, subTitle }) {
     <HeroBackground>
       <header className="main-header vh-100 p-3">
         <Container>
-          <Row className="align-items-center justify-content-center">
+          <Row className="align-items-center justify-content-center flex-column-reverse flex-lg-row">
             <Col lg={6}>
               <h1
                 className="text-primary"

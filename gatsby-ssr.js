@@ -5,6 +5,7 @@ const React = require("react")
 
 exports.onRenderBody = ({setHeadComponents}) => {
         setHeadComponents([
-            <script id="bookNow" key="booking" src="https://asset-tidycal.b-cdn.net//js/embed.js"></script>
+            <script async id="bookNow" key="booking" src="https://asset-tidycal.b-cdn.net//js/embed.js"></script>
             ])
     }
+
