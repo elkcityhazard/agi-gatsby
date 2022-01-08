@@ -1,0 +1,12 @@
+header.main-header {
+    display: grid;
+    place-items: center;
+    .container {
+        .col {
+            a {
+                transition: all 250ms ease;
+                -webkit-transition: all 250ms ease;
+            }
+        }
+    }
+}
