@@ -42,10 +42,6 @@ export default function BookNow( { children }) {
     setLoaded(true)
   }, [])
 
-  const handleLoad = () => {
-      setLoaded(true)
-  }
-
     return (
         <>
         <BackgroundImage
