@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 
 import {graphql, useStaticQuery} from 'gatsby';
 
@@ -15,7 +15,7 @@ import {Container, Row, Col} from 'react-bootstrap'
 
 export default function BookNow( { children }) {
 
-    const [loaded, setLoaded] = useState(false)
+    const loaded = useRef(false)
 
     const {placeholderImage} = useStaticQuery(graphql`
   {
@@ -39,7 +39,7 @@ export default function BookNow( { children }) {
   const bgImage = convertToBgImage(image)
 
   useEffect(() => {
-    setLoaded(true)
+    loaded.current= true 
   }, [])
 
     return (
@@ -68,7 +68,7 @@ export default function BookNow( { children }) {
             </Row>
             <Row>
                 <Col xl={9} className="mx-auto">
-                    {loaded && <div id="tidycal-embed" data-path="mark2/30-minute-meeting"></div>}                    
+                    {loaded.current={true} && <div id="tidycal-embed" data-path="mark2/30-minute-meeting"></div>}                    
                 </Col>
             </Row>
         </Container>
