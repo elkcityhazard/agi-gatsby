@@ -1,0 +1,38 @@
+.process-card {
+    background: transparent;
+    margin-bottom: 1rem;
+    max-width: 100% !important;
+    position: relative !important;
+    z-index: 0;
+
+    .card {
+        border-top-right-radius: 2rem !important;
+        border-bottom-left-radius: 2rem !important;
+    }
+
+    @media screen and (min-width: 499px) {
+        max-width: 50% !important;
+    }
+
+    @media screen and (min-width: 968px) {
+        max-width: 33% !important;
+    }
+
+    @media screen and (min-width: 1200px) {
+        max-width: 20% !important;
+    }
+}
+
+.circle-id {
+    background: #fff;
+    box-shadow: 2px 2px 20px -12px rgba(0, 0, 0, 0.75);
+    display: grid;
+    place-items: center;
+    height: 45px;
+    margin: 0 auto;
+    position: absolute;
+    top: calc(-45px / 2);
+    left: calc(-45px / 3);
+    width: 45px;
+    z-index: 1;
+}

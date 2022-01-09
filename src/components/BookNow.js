@@ -53,7 +53,7 @@ export default function BookNow() {
           as="section"
           className="book-now h-100"
           style={{
-            background: `linear-gradient(0.25turn, rgba(255, 163, 28, 0.5), rgba(255, 163, 28, 0.5))`,
+            background: `linear-gradient(0.25turn, rgba(0,0,0, 0.5), rgba(0,0,0,0.5))`,
           }}
         >
           <Row
@@ -65,7 +65,8 @@ export default function BookNow() {
             }}
           >
             <Col xl={9} className="text-center mx-auto">
-              <h3 className="h1">Schedule A Free Consultation Now</h3>
+              <h3 className="h1 text-uppercase">Schedule A <span className="text-success">Free Consultation</span> Now</h3>
+              <hr width="100px" className="mx-auto shadow text-white"></hr>
             </Col>
             <Col xl={9} className="mx-auto text-center d-flex align-items-center justify-content-center">
               <a href="https://tidycal.com/absolutely-gorgeous-interiors" target="_parent" rel="noreferrer" className="btn btn-large btn-rounded btn-primary">Schedule Now</a>

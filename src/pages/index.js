@@ -5,6 +5,7 @@ import MainLayout from '../components/MainLayout'
 import Header from '../components/Header'
 import LocaleCard from '../components/LocaleCard'
 import ServiceSection from '../components/ServiceSection'
+import AboutUs from '../components/AboutUs'
 
 // CSS Global Import 
 import '../assets/css/bootstrap.min.css';
@@ -23,9 +24,8 @@ const IndexPage = () => {
     <MainLayout>
     <Header title={title} subTitle={subTitle} />
     <LocaleCard />
-    <ServiceSection>
-
-    </ServiceSection>
+    <AboutUs />
+    <ServiceSection />
     </MainLayout>
     </>
   )

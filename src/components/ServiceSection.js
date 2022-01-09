@@ -53,11 +53,12 @@ export default function ServiceSection() {
            background: `linear-gradient(0.25turn, rgba(0,0,0,0.66), rgba(0,0,0,0.66))`
        }}
        >
-        <Row className="p-3">
+         <Container>
+         <Row className="p-3 text-center">
             <Col md={9} className="mx-auto text-center">
-                <h3 className="h1 text-light">Our Services</h3>
+                <h3 className="h1 text-light text-uppercase">Our <span className="text-success">Services</span></h3>
                 <hr width="100px" className="mx-auto text-white shadow" />
-                <p class="text-light fw-bolder">Absolutely Gorgeous Interiors offers a full range of building contracor services in Traverse City, Michigan. Our team is dedicated to helping you find the right type of contractor services and building materials that will work best for your forever home.</p>
+                <p class="text-light fw-bolder">Absolutely Gorgeous Interiors offers a full range of building contracor services in Traverse City, Michigan. Our team is dedicated to helping you find the right type of contractor services and building materials that will work best for your project or renovation.</p>
             </Col>
         </Row>
        <Row 
@@ -69,12 +70,23 @@ export default function ServiceSection() {
         
        {data.map((link, index) => {
            return (
-            <Col xs={12} lg={9} xl={4}>
-                <ServiceCard aos={link.aos} key={index} image={link.image} text={link.text} description={link.description} url={link.url} icon={link.icon} />
+            <Col xs={12} lg={9} md={9} xl={4} className="d-flex align-items-center justify-content-center mx-auto">
+                <ServiceCard 
+                aos={link.aos} 
+                key={index} 
+                image={link.image} 
+                text={link.text} 
+                description={link.description} 
+                url={link.url} 
+                icon={link.icon}
+                className="mx-auto mb-3"
+                />
             </Col>
            )
         })}
        </Row>
+         </Container>
+         
        </Container>
        </BackgroundImage>
     )

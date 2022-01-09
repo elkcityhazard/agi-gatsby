@@ -22,7 +22,14 @@ export default function ServiceCard({text, icon, aos, image, description, url}) 
       }, []);
 
     return (
-        <Card data-aos={aos} data-aos-delay="100" data-aos-duration="1250" bg="secondary" text="dark" className="mb-3">
+        <Card 
+        data-aos={aos} 
+        data-aos-delay="100" 
+        data-aos-duration="1250" 
+        bg="secondary" 
+        text="dark" 
+        className="service-card mb-3" 
+        >
             <Card.Header className="d-flex align-items-center justify-content-between fw-bold text-decoration-underline">
                 <Link to={url} className="text-dark">{text}</Link>
                 {icon}</Card.Header>
