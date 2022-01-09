@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 // Custom Bootstrap Import
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col} from "react-bootstrap";
 
 // Import Custom Component
 import HeroBackground from "./BackgroundImage";
@@ -86,6 +86,7 @@ export default function Header({ title, subTitle }) {
             </Col>
           </Row>
         </Container>
+        
       </header>
     </HeroBackground>
   );

@@ -13,23 +13,33 @@ const links = [
       children: [
         {
           text: "Flooring Contractor",
-          url: "/services/flooring-contractor"
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          url: "/services/flooring-contractor",
+          icon: "<FaHome />"
         },
         {
           text: "Concrete Contractor",
-          url: "/services/concrete-contractor"
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          url: "/services/concrete-contractor",
+          icon: "<FaHome />"
         },
         {
           text: "Bathroom Remodeler",
-          url: "/services/bathroom-remodeler"
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          url: "/services/bathroom-remodeler",
+          icon: "<FaHome />"
         },
         {
           text: "Kitchen Remodeler",
-          url: "/services/kitchen-remodeler"
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          url: "/services/kitchen-remodeler",
+          icon: "<FaHome />"
         },
         {
           text: "General Contractor",
-          url: "/services/general-contractor-traverse-city"
+          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          url: "/services/general-contractor-traverse-city",
+          icon: "<FaHome />"
         }
       ],
       color: "#1099A8",

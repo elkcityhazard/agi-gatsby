@@ -15,7 +15,7 @@ export default function MainNavBar() {
         <>
   <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
   <Container>
-  <Navbar.Brand href="/">AGI</Navbar.Brand>
+  <Navbar.Brand as={Link} to="/">AGI</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
@@ -39,8 +39,8 @@ export default function MainNavBar() {
       })}
     </Nav>
     <Nav>
-      <Nav.Link as={Link} href="tel:+19897089620" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">(989) 708-9620</Nav.Link>
-      <Nav.Link as={Link} href="https://goo.gl/maps/u1UzLJckKCpdXyRZ6" target="_blank" rel="noreferrer nofollow" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">Directions</Nav.Link>
+      <Nav.Link  href="tel:+19897089620" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">(989) 708-9620</Nav.Link>
+      <Nav.Link  href="https://goo.gl/maps/u1UzLJckKCpdXyRZ6" target="_blank" rel="noreferrer nofollow" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">Directions</Nav.Link>
     </Nav>
   </Navbar.Collapse>
   </Container>

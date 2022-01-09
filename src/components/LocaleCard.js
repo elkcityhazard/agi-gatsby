@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState} from 'react';
 
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -14,12 +13,6 @@ import './LocaleCard.scss'
 const title = "#1 Interior Construction Contractor in Traverse City, Michigan"
 
 export default function LocaleCard() {
-
-    const [zoom, setZoom] = useState(1.25)
-
-    const handleLoad = (e) => {
-        setZoom(1)
-    }
 
     return (
         <section className="locale-card p-3">
@@ -37,7 +30,7 @@ export default function LocaleCard() {
                 </div>
                 <div className="col-12 col-xl-6 mx-auto p-3">
                     <h3>{title}</h3>
-                    <p className="leader">
+                    <p className="lead">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, iste nulla. Quis reiciendis saepe quam illo voluptates explicabo sint numquam voluptatum maxime magni, cum aperiam vero beatae, ratione vitae cumque?
                         Expedita natus harum quis, architecto nihil ut error magnam necessitatibus esse libero ex perspiciatis quia quam iure aliquam illum suscipit vero sed minus eum veniam aut. Nemo deserunt voluptatum cumque.
                         Eaque eius voluptatibus eum maiores distinctio quam illum, culpa cupiditate recusandae. Dolore modi et possimus corrupti quaerat dolorem neque, mollitia unde, perferendis nihil assumenda quisquam enim expedita nemo ab aperiam!
