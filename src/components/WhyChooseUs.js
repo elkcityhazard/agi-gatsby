@@ -76,8 +76,11 @@ export default function WhyChooseUs() {
                 </Col>
             </Row>
             <Row className="">
+                <Col md={9} className="p-3 text-center mx-auto">
             <h3 className="h1 text-dark text-uppercase">Quality Is Our<span className="text-success"> Top Priority </span>At Absolutely Gorgeous Interiors</h3>
                 <hr width="100px" className="mx-auto text-dark shadow" />
+                </Col>
+                <Col md={9} className="mx-auto text-start">
                 <p class="text-start">
                 Absolutely Gorgeous Interiors is a full service <strong>interior construction contractor</strong> in Traverse City, Michigan, that is dedicated to giving you a high-quality service that will exceed your expectations. We are focused on client satisfaction, which means that we will be able to provide you with a service that will make all of your dreams come true.
                 </p>
@@ -89,11 +92,15 @@ export default function WhyChooseUs() {
                 Absolutely Gorgeous Interiors is a company that is dedicated to providing high-quality service that will exceed your expectations.
                 Absolutely Gorgeous Interiors is focused on client satisfaction and delivering on promises with the highest quality materials and craftsmanship.
                 </p>
+                </Col>
             </Row>
             <CallNow />
-            <Row className="mt-3">
+            <Row className="mt-3 text-center">
+                <Col md={9} className="mx-auto">
             <h3 className="h1 text-dark text-uppercase">Learn More About<span className="text-success"> Interior Construction Contractor </span>Services</h3>
                 <hr width="100px" className="mx-auto text-dark shadow" />
+                </Col>
+                <Col md={9} className="mx-auto text-start">
                 <p className="text-left">
                 Searching for a Traverse City, Michigan home remodeling and <strong>interior construction contractor</strong> company can be overwhelming. The design and remodel process is often confusing to people who have no remodeling or construction experience.<br /><br />
                 When choosing a remodeling contractor in the Traverse City area, it's important to look for certain qualities. <br /><br />
@@ -107,6 +114,7 @@ export default function WhyChooseUs() {
                 Our Traverse City, Michigan remodeling contractors are able to seamlessly work with any small or large remodeling project, providing our clients with optimum results and teamwork throughout the design and remodel process. We work with customers anywhere in Greater Traverse City, Michigan Michigan.
                 To request a free in-home remodeling consultation and estimate, <a href="https://tidycal.com/absolutely-gorgeous-interiors" title="book a free consultation now" target="_self" rel="noreferrer nofollow">book now</a> For general questions contact us here or call <a href="tel:+19897089620" title="call now" aria-label="call now">(989) 708-9620</a>.
                 </p>
+                </Col>
             </Row>
         </Container>
     )
