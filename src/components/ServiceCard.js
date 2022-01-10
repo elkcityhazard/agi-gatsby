@@ -25,7 +25,8 @@ export default function ServiceCard({text, icon, aos, image, description, url}) 
         <Card 
         data-aos={aos} 
         data-aos-delay="100" 
-        data-aos-duration="1250" 
+        data-aos-duration="1250"
+        data-aos-once="true"
         bg="secondary" 
         text="dark" 
         className="service-card mb-3" 

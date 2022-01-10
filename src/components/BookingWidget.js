@@ -15,9 +15,7 @@ const BookingWidget = () => {
   
     return (
       <div>
-        <div id="tidycal-embed" data-path="absolutely-gorgeous-interiors/30-minute-meeting" onLoad={setTimeout(() => {
-            bookingScript()
-        }, 3000)}></div>
+        <div id="tidycal-embed" data-path="absolutely-gorgeous-interiors/30-minute-meeting" onLoad={bookingScript()}></div>
         <div ref={bookingRef} className="booking-widget">
         </div>
       </div>

@@ -1,0 +1,12 @@
+.animate-chevron {
+    svg {
+        transition: all 250ms ease;
+        -webkit-transition: all 250ms ease;
+    }
+    &:hover {
+        svg {
+            margin-right: 1rem;
+
+        }
+    }
+}

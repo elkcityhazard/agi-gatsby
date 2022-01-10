@@ -58,7 +58,7 @@ export default function ServiceSection() {
             <Col md={9} className="mx-auto text-center">
                 <h3 className="h1 text-light text-uppercase">Our <span className="text-success">Services</span></h3>
                 <hr width="100px" className="mx-auto text-white shadow" />
-                <p class="text-light fw-bolder">Absolutely Gorgeous Interiors offers a full range of building contracor services in Traverse City, Michigan. Our team is dedicated to helping you find the right type of contractor services and building materials that will work best for your project or renovation.</p>
+                <p class="text-light fw-bolder">Absolutely Gorgeous Interiors offers a full range of building contractor services in Traverse City, Michigan. Our team is dedicated to helping you find the right type of contractor services and building materials that will work best for your project or renovation.</p>
             </Col>
         </Row>
        <Row 

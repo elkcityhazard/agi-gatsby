@@ -7,6 +7,7 @@ import LocaleCard from '../components/LocaleCard'
 import ServiceSection from '../components/ServiceSection'
 import AboutUs from '../components/AboutUs'
 
+
 // CSS Global Import 
 import '../assets/css/bootstrap.min.css';
 

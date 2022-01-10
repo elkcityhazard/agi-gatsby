@@ -83,10 +83,11 @@ function AboutUs() {
                         data-aos="fade-up"
                         data-aos-delay={process.id * 250 }
                         data-aos-duration="1250"
+                        data-aos-once="true"
                         >
-                            <Card  className="h-100 bg-transparent">
+                            <Card className="h-100 bg-transparent">
                                 <Card.Header bg="transparent" className="text-center bg-transparent">
-                                    <div className="rounded-circle border border-info circle-id">
+                                    <div className="rounded-circle border border-none circle-id">
                                     {process.id}
                                     </div>
                                     </Card.Header>
@@ -95,8 +96,9 @@ function AboutUs() {
                                     <Card.Title className="text-center text-uppercase fw-bolder">{process.title}</Card.Title>
                                     <Card.Text 
                                      data-aos="fade-left"
-                                     data-aos-delay={process.id * 250 + 1250}
+                                     data-aos-delay={process.id * 100 + 250}
                                      data-aos-duration="1250"
+                                     data-aos-once="true"
                                      >{process.text}</Card.Text>
                                 </Card.Body>
                             </Card>
