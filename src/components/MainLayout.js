@@ -4,6 +4,7 @@ import React from 'react'
 
 import MainNavBar from './MainNavBar'
 import BookNow from './BookNow'
+import AboutUs from './AboutUs'
 import WhyChooseUs from "../components/WhyChooseUs"
 import GoogleMap from '../components/GoogleMap'
 import ContactSection from '../components/ContactSection'
@@ -14,6 +15,7 @@ export default function MainLayout( {children}) {
         <>
         <MainNavBar />
         {children}
+        <AboutUs />
         <WhyChooseUs />
         <BookNow />
         <GoogleMap></GoogleMap>

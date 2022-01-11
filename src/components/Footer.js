@@ -12,7 +12,7 @@ import "./Footer.scss";
 
 export default function Footer() {
   return (
-    <Container className="bg-dark text-light p-3">
+    <Container fluid as="footer" className="bg-dark text-light p-3">
       <Row className="p-3">
         <Col md={9} className="mx-auto text-center border-bottom">
           <h3 className="h1 border-bottom pb-3">
@@ -33,8 +33,8 @@ export default function Footer() {
           </p>
         </Col>
       </Row>
-      <Row className="p-3">
-        <Col lg={3} className="mx-auto border-end mb-3">
+      <Row className="p-5">
+        <Col lg={4} className="mx-auto border-end mb-3">
           <h4>Our Promise</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
@@ -42,14 +42,14 @@ export default function Footer() {
             asperiores quisquam excepturi?
           </p>
         </Col>
-        <Col lg={3} className="mx-auto border-end mb-3">
+        <Col lg={2} className="mx-auto border-end mb-3">
           <h4>Subscribe</h4>
           <p>
             Subscribe for future tips, tricks, and promotions in your email
             inbox:
           </p>
         </Col>
-        <Col lg={3} className="mx-auto border-end mb-3">
+        <Col lg={2} className="mx-auto border-end mb-3">
           <h4>Explore</h4>
           <nav>
             {links.map((link) => (
@@ -65,7 +65,7 @@ export default function Footer() {
             ))}
           </nav>
         </Col>
-        <Col lg={3} className="mx-auto mb-3">
+        <Col lg={4} className="mx-auto mb-3">
           <h4>Find Us</h4>
           <address>
             <span className="d-block">Absolutely Gorgeous Interiors, LLC</span>

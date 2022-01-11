@@ -23,7 +23,6 @@ const IndexPage = () => {
   return (
     <>
     <Header title={title} subTitle={subTitle} />
-    <AboutUs />
     <LocaleCard />
     <ServiceSection />
     </>

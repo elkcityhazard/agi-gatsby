@@ -12,6 +12,15 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        queryLimit: 1000, // Defaults to 100
+        collectionTypes: [`services`],
+        singleTypes: [],
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "298593162",
