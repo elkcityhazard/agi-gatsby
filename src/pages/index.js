@@ -22,12 +22,10 @@ const IndexPage = () => {
 
   return (
     <>
-    <MainLayout>
     <Header title={title} subTitle={subTitle} />
     <AboutUs />
     <LocaleCard />
     <ServiceSection />
-    </MainLayout>
     </>
   )
 }

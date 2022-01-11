@@ -12,7 +12,7 @@ import "./Footer.scss";
 
 export default function Footer() {
   return (
-    <Container fluid className="bg-dark text-light p-3">
+    <Container className="bg-dark text-light p-3">
       <Row className="p-3">
         <Col md={9} className="mx-auto text-center border-bottom">
           <h3 className="h1 border-bottom pb-3">

@@ -94,7 +94,11 @@ export default function WhyChooseUs() {
                 </p>
                 </Col>
             </Row>
-            <CallNow />
+            <Row>
+                <Col md={9} className="mx-auto text-start ps-3">
+                    <CallNow />
+                </Col>
+            </Row>
             <Row className="mt-3 text-center">
                 <Col md={9} className="mx-auto">
             <h3 className="h1 text-dark text-uppercase">Learn More About<span className="text-success"> Interior Construction Contractor </span>Services</h3>
