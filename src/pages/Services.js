@@ -1,80 +1,64 @@
 import React from 'react'
 
-import {graphql, useStaticQuery} from 'gatsby'
+import {graphql, Link, useStaticQuery} from 'gatsby'
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container, Row, Col, Card} from 'react-bootstrap'
 
-const query = graphql`
-{
-  allStrapiServices {
-    nodes {
-      Title
-      description
-      service_image {
-        localFile {
-          childImageSharp {
-            gatsbyImageData(
-              width: 500
-              webpOptions: {quality: 75}
-              jpgOptions: {quality: 85}
-              breakpoints: [300, 768, 968, 1200]
-            )
-          }
+import ServiceCard from '../components/ServiceCard'
+
+
+
+export default function Services( {data} ) {
+  const {nodes} = data.allContentfulService
+  console.log(nodes)
+    return (
+      <Container md={9} className="mx-auto p-3">
+      {nodes.map((node, index) => {
+       return (
+         <Row className="p-3">
+           <Col md={6} className="mx-auto p-3 card border-info mb-3">
+        <Card className="bg-dark text-white">
+        <Card.Img src={node.featuredImage.gatsbyImageData.images.fallback.src} title={node.featuredImage.title} alt={node.featuredImage.title} width="300" className="opacity-25" />
+        <Card.ImgOverlay>
+          <Card.Title><h2 className="h5 fw-bold text-decoration-underline">{node.title}</h2></Card.Title>
+          <Card.Text>
+            {node.description.description}
+          </Card.Text>
+          <Card.Text><Link className="btn btn-warning" to={`/services/${node.id}`}>{node.title}</Link></Card.Text>
+        </Card.ImgOverlay>
+      </Card>
+      </Col>
+      </Row>
+       )
+      })}
+      </Container>
+      )
+}
+
+export const data = graphql`
+  {
+    allContentfulService {
+      nodes {
+        id
+        title
+        date
+        description {
+          id
+          description
+        }
+        featuredImage {
+          gatsbyImageData(width: 300)
+          title
+          description
+        }
+        featured
+        content {
+          raw
         }
       }
-      detailed_description {
-        section_content
-        section_title
-        section_image {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 500)
-            }
-          }
-        }
-      }
+      totalCount
     }
   }
-}
 `
-
-export default function Services() {
-    const data = useStaticQuery(query)
-    const {nodes} = data.allStrapiServices
-    console.log(nodes);
-    return (
-        <Container as="section">
-            {nodes.map((section, index) => {
-                const image = section.service_image.localFile.childImageSharp.gatsbyImageData
-                return (
-                    <>
-                    <Row key="index"> 
-                        <Col md={9} className="mx-auto p-3">
-                            <h2>{section.Title}</h2>
-                            <p class="lead">{section.description}</p>
-                        </Col>
-                        <Col md={9} className="mx-auto p-3">
-                            <figure>
-                                <GatsbyImage image={image} alt="image" placeholder="blurred" />
-                            </figure>
-                        </Col>
-                    </Row>
-                    <main>
-                        {section.detailed_description.map((section, index) => {
-                            return (
-                                <Row key={index}>
-                                    <Col md={9} className="mx-auto mb-3">
-                                        {section.section_content}
-                                    </Col>
-                                </Row>
-                            )
-                        })}
-                    </main>
-                    </>
-                )
-            })}
-        </Container>
-    )
-}

@@ -1,6 +1,8 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+  })
+
+
 
 
 module.exports = {
@@ -12,12 +14,10 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
     {
-      resolve: `gatsby-source-strapi`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        apiURL: `http://localhost:1337`,
-        queryLimit: 1000, // Defaults to 100
-        collectionTypes: [`services`],
-        singleTypes: [],
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_CONTENT_DELIVERY_ID,
       },
     },
     {
