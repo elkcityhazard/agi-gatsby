@@ -26,7 +26,7 @@ export default function Services( {data} ) {
           <Card.Text>
             {node.description.description}
           </Card.Text>
-          <Card.Text><Link className="btn btn-warning" to={`/services/${node.id}`}>{node.title}</Link></Card.Text>
+          <Card.Text><Link className="btn btn-warning" to={`/services/${node.slug}`}>{node.title}</Link></Card.Text>
         </Card.ImgOverlay>
       </Card>
       </Col>
@@ -44,6 +44,7 @@ export const data = graphql`
         id
         title
         date
+        slug
         description {
           id
           description
@@ -55,7 +56,7 @@ export const data = graphql`
         }
         featured
         content {
-          raw
+          content
         }
       }
       totalCount
