@@ -10,3 +10,12 @@
         }
     }
 }
+
+footer {
+    .border-end {
+        border-color: transparent !important;
+        @media screen and (min-width: 968px) {
+            border-color: #fff !important;
+        }
+    }
+}

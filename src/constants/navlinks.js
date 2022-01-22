@@ -2,7 +2,7 @@
 const links = [
     {
       text: "Interior Construction Contractor",
-      url: "/traverse-city-home-builder",
+      url: "/services/traverse-city-home-builder",
       description:
         "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
       color: "#E95800",
@@ -14,7 +14,7 @@ const links = [
         {
           text: "Flooring Contractor",
           description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-          url: "/services/flooring-contractor",
+          url: "/services/traverse-city-flooring-contractor",
           icon: "<FaHome />"
         },
         {

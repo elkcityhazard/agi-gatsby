@@ -96,7 +96,7 @@ export default function WhyChooseUs() {
                 </Col>
             </Row>
             <Row>
-                <Col md={9} className="mx-auto text-start ps-3">
+                <Col md={9} className="mx-auto text-center text-lg-start ps-3">
                     <CallNow />
                 </Col>
             </Row>

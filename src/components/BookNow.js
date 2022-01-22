@@ -69,7 +69,7 @@ export default function BookNow() {
               <hr width="100px" className="mx-auto shadow text-white"></hr>
             </Col>
             <Col xl={9} className="mx-auto text-center d-flex align-items-center justify-content-center">
-              <a href="https://tidycal.com/absolutely-gorgeous-interiors" target="_parent" rel="noreferrer" className="btn btn-large shadow-lg rounded-pill btn-warning">Schedule Now</a>
+             <a href="https://tidycal.com/absolutely-gorgeous-interiors" target="_parent" rel="noreferrer" className="btn btn-large shadow-lg rounded-pill btn-warning">Schedule Now< /a>
             </Col>
           </Row>
         </Container>
