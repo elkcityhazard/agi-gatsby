@@ -67,7 +67,7 @@ export default function Header({ title, subTitle }) {
               </a>
               <a 
               
-              href="https://tidycal.com/mark2" 
+              href="https://tidycal.com/absolutely-gorgeous-interiors" 
               target="_blank" 
               rel="noreferrer nofollow" 
               className="btn btn-primary ms-2"
