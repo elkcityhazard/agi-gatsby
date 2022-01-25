@@ -83,7 +83,7 @@ export default function Footer() {
             </span>
           </address>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.504651637606!2d-85.63905168524106!3d44.790903086137554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881e2c7ad8d4fba5%3A0xb9a4d6b13ab5c870!2sCenterPointe!5e0!3m2!1sen!2sus!4v1641761476838!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.504838409727!2d-85.63905168446499!3d44.79089927909876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd9bd515e1608f756!2sAbsolutely%20Gorgeous%20Interiors%2C%20LLC!5e0!3m2!1sen!2sus!4v1642964608303!5m2!1sen!2sus"
             width="100%"
             height="200"
             title="map to absolutely gorgeous interiors"
@@ -96,3 +96,4 @@ export default function Footer() {
     </Container>
   );
 }
+
