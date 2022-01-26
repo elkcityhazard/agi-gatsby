@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { graphql, useStaticQuery } from 'gatsby'
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
@@ -10,10 +10,17 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import './aboutUs.scss'
 
+// Import AOS
+import AOS from "aos";
+
+// Import Custom CSS
+import "../components/Header.scss";
+import "aos/dist/aos.css";
+
 function AboutUs() {
 
     const title = `Our Story - Absolutely Gorgeous Interiors`
-    console.log(title)
+    const subtitle = `Building For Beauty & Accessibility`
 
     const { placeholderImage } = useStaticQuery(
         graphql`
@@ -33,34 +40,54 @@ function AboutUs() {
 
     const bgImage = convertToBgImage(image)
 
+    // Initialize AOS
+
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
+
 
     return (
-        <BackgroundImage
-            Tag="section"
-            style={{
-                backgroundPosition: `50% 25%`
-            }}
-            // Spread bgImage into BackgroundImage:
-            {...bgImage}
-            preserveStackingContext
-        >
-            <Container fluid as="header" style={{
-                background: `rgba(0,0,0,0.5)`,
-                height: `100%`,
-                minHeight: `75vh`,
-                minWidth: `1000`,
-                display: `grid`
-            }}
-                className="p-5"
+        <>
+            <BackgroundImage
+                Tag="section"
+                style={{
+                    backgroundPosition: `50% 25%`
+                }}
+                // Spread bgImage into BackgroundImage:
+                {...bgImage}
+                preserveStackingContext
             >
-                <Row className="align-items-center">
+                <Container fluid as="header" style={{
+                    background: `rgba(0,0,0,0.5)`,
+                    height: `100%`,
+                    minHeight: `75vh`,
+                    minWidth: `1000`,
+                    display: `grid`
+                }}
+                    className="p-5"
+                >
+                    <Row className="d-flex justify-content-center align-items-center text-center">
+                        <Col lg={9} className="mx-auto text-center p-3">
+                            <div className="mx-auto text-center text-uppercase fw-bolder"><small className="text-white">About</small>&nbsp;<small className="text-success">Absolutely Gorgeous Interiors</small></div>
+                            <h1
+                                data-aos="fade-up"
+                                data-aos-delay="250"
+                                data-aos-duration="1250"
+                                className="display-1 text-white text-center">{title}</h1>
+                        </Col>
+                    </Row>
+                </Container>
+            </BackgroundImage>
+            <Container as="main">
+                <Row as="section">
                     <Col lg={9} className="mx-auto p-3">
-                        <h1 className="display-1 text-white text-start text-xl-start">{title}</h1>
+                        <h2 className="h2 text-center">{subtitle}</h2>
                     </Col>
-                    <Col lg={3} className="mx-auto p-3"></Col>
                 </Row>
             </Container>
-        </BackgroundImage>
+        </>
     )
 }
 
