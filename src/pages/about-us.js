@@ -22,7 +22,7 @@ function AboutUs() {
     const title = `Our Story - Absolutely Gorgeous Interiors`
     const subtitle = `Building For Beauty & Accessibility`
 
-    const { placeholderImage } = useStaticQuery(
+    const { placeholderImage, contentfulAboutUsPage } = useStaticQuery(
         graphql`
             query {
         placeholderImage: file(relativePath: {eq: "young-man-carpenter.jpg"}) {
@@ -33,9 +33,34 @@ function AboutUs() {
         )
       }
     }
+    contentfulAboutUsPage {
+        id
+        slug
+        subtitle
+        publishDate
+        title
+        childContentfulAboutUsPageIntroductionTextNode {
+          introduction
+        }
+        childContentfulAboutUsPageProblemTextNode {
+          id
+          problem
+        }
+        childContentfulAboutUsPageFutureTextNode {
+          id
+          future
+        }
+        childContentfulAboutUsPageRiseToChallengeTextNode {
+          riseToChallenge
+        }
+        childContentfulAboutUsPageSolutionTextNode {
+          solution
+        }
+      }
   }
 `    )
 
+    console.log({ ...contentfulAboutUsPage })
     const image = getImage(placeholderImage)
 
     const bgImage = convertToBgImage(image)
@@ -70,12 +95,17 @@ function AboutUs() {
                 >
                     <Row className="d-flex justify-content-center align-items-center text-center">
                         <Col lg={9} className="mx-auto text-center p-3">
-                            <div className="mx-auto text-center text-uppercase fw-bolder"><small className="text-white">About</small>&nbsp;<small className="text-success">Absolutely Gorgeous Interiors</small></div>
+                            <div
+                                className="mx-auto text-center text-uppercase fw-bolder"
+                                data-aos="fade"
+                                data-aos-delay="1250"
+                                data-aos-duration="1250"
+                            ><small className="text-white">About</small>&nbsp;&nbsp;<small className="text-success">Absolutely Gorgeous Interiors</small></div>
                             <h1
                                 data-aos="fade-up"
                                 data-aos-delay="250"
                                 data-aos-duration="1250"
-                                className="display-1 text-white text-center">{title}</h1>
+                                className="display-1 text-white text-center">{contentfulAboutUsPage.title}</h1>
                         </Col>
                     </Row>
                 </Container>
@@ -83,7 +113,32 @@ function AboutUs() {
             <Container as="main">
                 <Row as="section">
                     <Col lg={9} className="mx-auto p-3">
-                        <h2 className="h2 text-center">{subtitle}</h2>
+                        <h2 className="h2 text-center">{contentfulAboutUsPage.subtitle}</h2>
+                    </Col>
+                </Row>
+                <Row as="section">
+                    <Col lg={9} className="mx-auto p-3">
+                        {contentfulAboutUsPage.childContentfulAboutUsPageIntroductionTextNode.introduction}
+                    </Col>
+                </Row>
+                <Row as="section">
+                    <Col lg={9} className="mx-auto p-3">
+                        {contentfulAboutUsPage.childContentfulAboutUsPageProblemTextNode.problem}
+                    </Col>
+                </Row>
+                <Row as="section">
+                    <Col lg={9} className="mx-auto p-3">
+                        {contentfulAboutUsPage.childContentfulAboutUsPageRiseToChallengeTextNode.riseToChallenge}
+                    </Col>
+                </Row>
+                <Row as="section">
+                    <Col lg={9} className="mx-auto p-3">
+                        {contentfulAboutUsPage.childContentfulAboutUsPageSolutionTextNode.solution}
+                    </Col>
+                </Row>
+                <Row as="section">
+                    <Col lg={9} className="mx-auto p-3">
+                        {contentfulAboutUsPage.childContentfulAboutUsPageFutureTextNode.future}
                     </Col>
                 </Row>
             </Container>
@@ -92,3 +147,4 @@ function AboutUs() {
 }
 
 export default AboutUs;
+
