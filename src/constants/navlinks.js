@@ -20,7 +20,7 @@ const links = [
       {
         text: "Concrete Contractor",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-        url: "/services/concrete-contractor",
+        url: "/services/concrete-service-traverse-city",
         icon: "<FaHome />"
       },
       {
@@ -32,7 +32,7 @@ const links = [
       {
         text: "Kitchen Remodeler",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-        url: "/services/kitchen-remodeler",
+        url: "/services/traverse-city-kitchen-remodeler",
         icon: "<FaHome />"
       },
       {
