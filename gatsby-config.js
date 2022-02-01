@@ -80,5 +80,13 @@ module.exports = {
       },
       __key: "components",
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "gallery",
+        path: "./src/gallery/",
+      },
+      __key: "gallery",
+    },
   ],
 };
