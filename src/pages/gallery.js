@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import { Container, Row, Col } from 'react-bootstrap'
 
@@ -9,7 +9,29 @@ import { GatsbyImage, StaticImage, getImage } from 'gatsby-plugin-image'
 
 import './gallery.scss'
 
-export default function Gallery({ data }) {
+export default function Gallery() {
+
+  const data = useStaticQuery(graphql`
+{
+  allFile(filter: {sourceInstanceName: {eq: "gallery"}}) {
+    edges {
+      node {
+        id
+        childImageSharp {
+          gatsbyImageData(
+            width: 1200
+            webpOptions: {quality: 100}
+            quality: 100
+            layout: CONSTRAINED
+            placeholder: BLURRED
+            sizes: "300, 600, 900, 1200"
+            )
+        }
+      }
+    }
+  }
+}
+`)
 
   console.log(data)
 
@@ -77,29 +99,6 @@ export default function Gallery({ data }) {
 
         })}
       </Row>
-    </Container>
+    </Container >
   )
 }
-
-
-export const query = graphql`
-{
-  allFile(filter: {sourceInstanceName: {eq: "gallery"}}) {
-    edges {
-      node {
-        id
-        childImageSharp {
-          gatsbyImageData(
-            width: 1200
-            webpOptions: {quality: 100}
-            quality: 100
-            layout: CONSTRAINED
-            placeholder: BLURRED
-            sizes: "300, 600, 900, 1200"
-            )
-        }
-      }
-    }
-  }
-}
-`
