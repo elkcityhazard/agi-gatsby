@@ -22,7 +22,7 @@ export default function Gallery() {
   const data = useStaticQuery(query)
 
   console.log(data)
-
+  const [hasMounted, setHasMounted] = useState(false)
   const [open, setOpen] = useState(false)
   const [imgIndex, setImgIndex] = useState(0)
   const [animate, setAnimate] = useState(false)
@@ -37,7 +37,12 @@ export default function Gallery() {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
-  }, [open, imgIndex, animate])
+    setHasMounted(true)
+  }, [])
+
+  if (!hasMounted) {
+    return null;
+  }
 
   const increment = () => {
     imgIndex >= nodes.length - 1 ? setImgIndex(nodes.length - 1) : setImgIndex((imgIndex) => setImgIndex(imgIndex + 1))
