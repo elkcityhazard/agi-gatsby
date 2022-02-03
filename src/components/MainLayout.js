@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
+import { Helmet } from 'react-helmet'
 
 // Custom Components
 
@@ -10,17 +12,30 @@ import GoogleMap from '../components/GoogleMap'
 import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
 
-export default function MainLayout( {children}) {
+export default function MainLayout({ children }) {
+
+    const [loaded, setLoaded] = useState(false)
+
+    useEffect(() => {
+        setLoaded(false)
+        setLoaded(true)
+
+    }, [])
+
+    if (!loaded) {
+        return null
+    }
+
     return (
         <>
-        <MainNavBar />
-        {children}
-        <AboutUs />
-        <WhyChooseUs />
-        <BookNow />
-        <GoogleMap></GoogleMap>
-        <ContactSection />
-        <Footer />
+            <MainNavBar />
+            {children}
+            <AboutUs />
+            <WhyChooseUs />
+            <BookNow />
+            <GoogleMap></GoogleMap>
+            <ContactSection />
+            <Footer />
         </>
     )
 }
