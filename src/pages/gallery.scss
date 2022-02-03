@@ -9,6 +9,17 @@
     }
 }
 
+.spin {
+    cursor: pointer;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
+    transition: all 500ms ease;
+    -webkit-transiton: all 500ms ease;
+    &:hover {
+        transform: rotateZ(360deg);
+        -webkit-transform: rotateZ(360deg);
+    }
+}
+
 
 .gallery-wrapper {
     background: rgba(0,0,0,0.64);
@@ -25,15 +36,31 @@
         display: grid;
         padding: 1rem;
         place-items: center;
+        z-index: 1;
         img {
-            opacity: 0;
-            max-height: 90vh;
+             max-height: 90vh;
             transition: all 250ms ease;
             -webkit-transition: all 250ms ease;
             .fade-in {
-                animation: fadeIn 500ms ease forwards;
-                -webkit-animation: fadeIn 500ms ease forwards;
+                opacity: 1 !important;
+                animation: fadeIn 500ms ease forwards !important;
+                -webkit-animation: fadeIn 500ms ease forwards !important;
             }
+        }
+        #prevSlide,
+        #nextSlide {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        #prevSlide {
+            left: 25px;
+        }
+
+        #nextSlide {
+            right: 25px;
         }
     }
 }
