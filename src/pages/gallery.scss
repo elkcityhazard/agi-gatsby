@@ -1,19 +1,27 @@
 @keyframes fadeIn {
     from {
-        opacity: 0;
+        filter: opacity(0);
+        -webkit-filter: opacity(0);
         transform: translateY(20px);
+        -webkit-transform: translateY(20px);
     }
     to {
-        opacity: 1;
+        filter: opacity(1);
+        -webkit-filter: opacity(1);
         transform: translateY(0px);
+        -webkit-transform: translateY(0px);
     }
 }
 
 .spin {
     cursor: pointer;
+    position: absolute;
+    top: 2.5rem;
+    right: 1rem;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.75);
     transition: all 500ms ease;
     -webkit-transiton: all 500ms ease;
+    z-index: 2;
     &:hover {
         transform: rotateZ(360deg);
         -webkit-transform: rotateZ(360deg);
@@ -22,7 +30,7 @@
 
 
 .gallery-wrapper {
-    background: rgba(0,0,0,0.64);
+    background: rgba(0,0,0,0.75);
     display: block;
     position: fixed;
     top: 0;
@@ -32,20 +40,21 @@
     z-index: 1;
     .inner-wrapper {
         height: 100%;
+        max-width: 1366px;
+        margin: auto;
+        min-height: 90vh;
         width: 100%;
         display: grid;
-        padding: 1rem;
+        padding: 0;
         place-items: center;
+        position: relative;
+        text-align: center;
         z-index: 1;
         img {
+            margin: 0 auto;
              max-height: 90vh;
             transition: all 250ms ease;
             -webkit-transition: all 250ms ease;
-            .fade-in {
-                opacity: 1 !important;
-                animation: fadeIn 500ms ease forwards !important;
-                -webkit-animation: fadeIn 500ms ease forwards !important;
-            }
         }
         #prevSlide,
         #nextSlide {
@@ -74,4 +83,12 @@
     img {
         cursor: pointer;
     }
+}
+
+
+.fade-in {
+    animation: fadeIn 1250ms ease forwards;
+    -webkit-animation: fadeIn 1250ms ease forwards;
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px -12px rgba(0,0,0,1.0);
 }
