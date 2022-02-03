@@ -17,9 +17,7 @@ export default function MainLayout({ children }) {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        setLoaded(false)
         setLoaded(true)
-
     }, [])
 
     if (!loaded) {
