@@ -61,7 +61,7 @@ const links = [
   },
   {
     text: "Our Blog",
-    url: "/interior-construction-blog",
+    url: "/blog",
     badge: true,
     color: "#663399",
   },

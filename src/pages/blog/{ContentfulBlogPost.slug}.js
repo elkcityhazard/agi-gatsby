@@ -13,8 +13,17 @@ import {Container, Row, Col, Button, Form} from 'react-bootstrap'
 import './ContentfulBlogPost.scss'
 
 export default function ({data}) {
-  console.log(data)
-    const {contentfulBlogPost: {id, author, category, tags, publishDate, content: {content}, description: {description}, featuredImage: {gatsbyImageData}, slug, title}} = data
+    const {contentfulBlogPost: {
+      id, 
+      author, 
+      category, 
+      tags, 
+      publishDate, 
+      content: {content}, 
+      description: {description}, 
+      featuredImage: {gatsbyImageData}, 
+      slug, 
+      title}} = data
 
 
     // Get Image
