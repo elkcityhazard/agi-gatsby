@@ -40,7 +40,7 @@ export default function ({data}) {
     <div>
     <small className="d-inline-block pe-3 my-1"><strong>Publish Date:</strong> {new Date(publishDate).toLocaleDateString()}</small>
                                     <small className="d-inline-block pe-3 my-1" ><strong>Author:</strong> {author}</small>
-                                    <small className="d-inline-block pe-3 my-1">
+                                    <small className="d-inline-block pe-3 my-1"><strong>Category: </strong>
                                         <a as={Link} href="#" aria-role="button" aria-label="category button" link className="btn btn-danger btn-sm">
                                         {category}
                                         </a>
