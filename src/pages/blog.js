@@ -36,7 +36,7 @@ export default function Services({ data }) {
                                 <Card.Text className="">
                                     <small className="d-inline-block pe-3 my-1"><strong>Publish Date:</strong> {new Date(node.publishDate).toLocaleDateString()}</small>
                                     <small className="d-inline-block pe-3 my-1" ><strong>Author:</strong> {node.author}</small>
-                                    <small className="d-inline-block pe-3 my-1">
+                                    <small className="d-inline-block pe-3 my-1"><strong>Category: </strong>
                                         <a as={Link} href="#" aria-role="button" aria-label="category button" link className="btn btn-danger btn-sm">
                                         {node.category}
                                         </a>
