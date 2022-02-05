@@ -8,13 +8,14 @@ import { Container, Row, Col, Card } from 'react-bootstrap'
 
 import ServiceCard from '../components/ServiceCard'
 import ContentfulBlogSlug from './blog/{ContentfulBlogPost.slug}'
+import TagsList from '../components/TagsList'
 
 import './blog.scss'
 
 
 
 export default function Services({ data }) {
-    const { allContentfulBlogPost: { nodes } } = data
+    const { allContentfulBlogPost: {nodes }} = data
     console.log(nodes)
     return (
         <Container>
@@ -56,6 +57,7 @@ export default function Services({ data }) {
                         </Card>
                     </Col>
                 ))}
+                    <Col><TagsList posts={nodes} /></Col>
             </Row>
         </Container>
     )

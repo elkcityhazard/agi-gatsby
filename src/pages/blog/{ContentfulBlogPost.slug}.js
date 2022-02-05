@@ -4,6 +4,8 @@ import { graphql, Link } from 'gatsby';
 
 import BookNow from '../../components/BookNow'
 
+import TagsList from '../../components/TagsList'
+
 import {GatsbyImage, getImage} from 'gatsby-plugin-image'
 
 import {Container, Row, Col, Button, Form} from 'react-bootstrap'
@@ -68,7 +70,7 @@ export default function ({data}) {
           </div>
         </Col>
         <Col as="aside" xl={4}>
-          <BookNow />
+          <TagsList tags={tags} />
         </Col>
       </Row>
     </Container>
