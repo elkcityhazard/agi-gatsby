@@ -22,13 +22,13 @@ export default function MainNavBar() {
               {links.map((link, index) => {
                 if (link.children) {
                   return (
-                    <NavDropdown title={link.text} id="collasible-nav-dropdown" variant="light" bg="light">
+                    <NavDropdown key={index} title={link.text} id="collasible-nav-dropdown" variant="light" bg="light">
                       {link.children.map((child, index) => {
                         return (
-                          <>
+                          <div key={index}>
                             <NavDropdown.Item as={Link} href={child.url} variant="light" bg="light">{child.text}</NavDropdown.Item>
                             <NavDropdown.Divider />
-                          </>
+                          </div>
                         )
                       })}
                     </NavDropdown>

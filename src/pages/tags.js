@@ -2,6 +2,8 @@ import React from 'react';
 
 import { graphql, Link } from 'gatsby'
 
+import slugify from 'slugify'
+
 import { Container, Row, Col } from 'react-bootstrap'
 
 import setupTags from '../utils/setupTags'
@@ -14,7 +16,11 @@ function Tags({ data }) {
                 <Row>
                     {newTags.map((tag, index) => {
                         const [text, value] = tag
-                        return (<Link to={`${text}`} key={index} className="d-block btn text-uppercase btn-outline-warning mx-auto my-3 p-3">
+                        const slug = slugify(text, {
+                            trim: true,
+                            replacement: '-'
+                        })
+                        return (<Link to={`${slug}`} key={index} className="d-block btn text-uppercase btn-outline-warning mx-auto my-3 p-3">
                             <h3>{text}</h3>
                             <p>{value}</p>
                         </Link>)

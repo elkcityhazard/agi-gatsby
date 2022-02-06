@@ -23,13 +23,7 @@ export default function ServiceTemplate({ data }) {
     serviceOptions
   } = data.contentfulService
 
-  const position = useRef(0)
 
-  const setPosition = (e) => {
-    console.log(e)
-  }
-
-  console.log(position)
   return (
     <Container as="main" className="mx-auto">
       <Row className="p-3">
@@ -40,7 +34,7 @@ export default function ServiceTemplate({ data }) {
         </Col>
       </Row>
       <Row as="section">
-        <Col lg={3} className="mb-3" ref={position} >
+        <Col lg={3} className="mb-3" >
           <ContactAside title="Get A Free Quote" options={serviceOptions} />
           <Col className="text-center p-3 mx-auto">
             <h3 className="h3 text-uppercase text-start">Schedule A <span className="text-success">Free Consultation</span> Now</h3>
