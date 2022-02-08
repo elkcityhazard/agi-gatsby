@@ -8,13 +8,11 @@ import { Container, Row, Col } from 'react-bootstrap'
 import setupTags from '../utils/setupTags'
 
 
-function TagsList({ tags }) {
+function TagsList({ posts }) {
 
-    console.log(tags)
+    const newTags = setupTags(posts)
 
-    const newTags = setupTags(tags)
-
-    if (!tags) {
+    if (!posts) {
         return null
     }
     return (

@@ -1,10 +1,10 @@
-const setupTags = (tags) => {
-    if (!tags) {
+const setupTags = posts => {
+    if (!posts) {
         return console.log('error')
     }
     const allTags = {}
-    tags.forEach(post => {
-        tags.forEach(tag => {
+    posts.forEach(post => {
+        post.tags.forEach(tag => {
             if (allTags[tag]) {
                 allTags[tag] = allTags[tag] + 1
             } else {

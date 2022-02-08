@@ -1,22 +1,15 @@
 import React from "react";
 
-import { useState, useEffect } from "react";
-
 import { graphql, useStaticQuery } from "gatsby";
 
-import { getImage, GatsbyImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 
 import { convertToBgImage } from "gbimage-bridge";
 import BackgroundImage from "gatsby-background-image";
 
-import BookingWidget from './BookingWidget'
-
 // React bootstrap
 
 import { Container, Row, Col } from "react-bootstrap";
-
-
-const bookingForm = `<div id="tidycal-embed" data-path="mark2/30-minute-meeting"></div>`;
 
 export default function BookNow() {
 
@@ -69,7 +62,7 @@ export default function BookNow() {
               <hr width="100px" className="mx-auto shadow text-white"></hr>
             </Col>
             <Col xl={9} className="mx-auto text-center d-flex align-items-center justify-content-center">
-             <a href="https://tidycal.com/absolutely-gorgeous-interiors" target="_parent" rel="noreferrer" className="btn btn-large shadow-lg rounded-pill btn-warning">Schedule Now< /a>
+              <a href="https://tidycal.com/absolutely-gorgeous-interiors" target="_parent" rel="noreferrer" className="btn btn-large shadow-lg rounded-pill btn-warning">Schedule Now< /a>
             </Col>
           </Row>
         </Container>

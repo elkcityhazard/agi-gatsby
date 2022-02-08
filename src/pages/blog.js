@@ -1,5 +1,7 @@
 import React from 'react'
 
+import slugify from 'slugify';
+
 import { graphql, Link, useStaticQuery } from 'gatsby'
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -15,7 +17,7 @@ import './blog.scss'
 
 
 export default function Services({ data }) {
-    const { allContentfulBlogPost: {nodes }} = data
+    const { allContentfulBlogPost: { nodes } } = data
     console.log(nodes)
     return (
         <Container>
@@ -33,33 +35,38 @@ export default function Services({ data }) {
                     <Col key={node.id} sm={12} lg={9} className="mx-auto p-3 blog-list">
                         <Card className="bg-dark text-white p-3 shadow">
                             <Card.Img src={node.featuredImage.gatsbyImageData.images.fallback.src} title={node.featuredImage.title} alt={node.featuredImage.title} width="300" className="mb-3 shadow" />
-                                <Card.Title><h2 className="h5 fw-bold text-decoration-underline">{node.title}</h2></Card.Title>
-                                <Card.Text className="">
-                                    <small className="d-inline-block pe-3 my-1"><strong>Publish Date:</strong> {new Date(node.publishDate).toLocaleDateString()}</small>
-                                    <small className="d-inline-block pe-3 my-1" ><strong>Author:</strong> {node.author}</small>
-                                    <small className="d-inline-block pe-3 my-1"><strong>Category: </strong>
-                                        <a as={Link} href="#" aria-role="button" aria-label="category button" link className="btn btn-danger btn-sm">
+                            <Card.Title><h2 className="h5 fw-bold text-decoration-underline">{node.title}</h2></Card.Title>
+                            <Card.Text className="">
+                                <small className="d-inline-block pe-3 my-1"><strong>Publish Date:</strong> {new Date(node.publishDate).toLocaleDateString()}</small>
+                                <small className="d-inline-block pe-3 my-1" ><strong>Author:</strong> {node.author}</small>
+                                <small className="d-inline-block pe-3 my-1"><strong>Category: </strong>
+                                    <a as={Link} href="#" aria-role="button" aria-label="category button" link className="btn btn-danger btn-sm">
                                         {node.category}
-                                        </a>
-                                        </small>
-                                        <small className="d-inline-block pe-3 my-1" ><strong>Tags:</strong> {node.tags.map((tag, index) => {
-                                            return (
-                                                <a as={Link} key={index} href="#" aria-role="button" aria-label="category button" link className="btn btn-info btn-sm me-1 fs">
-                                        {tag}
-                                        </a>
-                                            )
-                                        })}</small>
-                                </Card.Text>
-                                <Card.Text>
-                                    {node.description.description}
-                                </Card.Text>
-                                <Card.Text><Link className="btn btn-warning" to={`/blog/${node.slug}`}>{node.title}</Link></Card.Text>
+                                    </a>
+                                </small>
+                                <small className="d-inline-block pe-3 my-1" ><strong>Tags:</strong> {node.tags.map((tag, index) => {
+                                    const categorySlug = slugify(tag, {
+                                        trim: true,
+                                        replacement: '-',
+                                        lower: true
+                                    })
+                                    return (
+                                        <Link key={index} to={`/tags/${categorySlug}`} aria-label="category button" className="btn btn-info btn-sm me-1 fs" >
+                                            {tag}
+                                        </Link>
+                                    )
+                                })}</small>
+                            </Card.Text>
+                            <Card.Text>
+                                {node.description.description}
+                            </Card.Text>
+                            <Card.Text><Link className="btn btn-warning" to={`/blog/${node.slug}`}>{node.title}</Link></Card.Text>
                         </Card>
                     </Col>
                 ))}
-                    <Col><TagsList posts={nodes} /></Col>
+                <Col><TagsList posts={nodes} /></Col>
             </Row>
-        </Container>
+        </Container >
     )
 
 }

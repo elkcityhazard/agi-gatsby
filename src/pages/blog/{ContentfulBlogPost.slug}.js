@@ -35,7 +35,6 @@ export default function ({ data }) {
 
   const image = getImage(gatsbyImageData)
 
-  let posts;
   return (
     <>
       <header className="p-3" style={{ minHeight: `50vh` }}>
@@ -48,18 +47,29 @@ export default function ({ data }) {
                 <small className="d-inline-block pe-3 my-1"><strong>Publish Date:</strong> {new Date(publishDate).toLocaleDateString()}</small>
                 <small className="d-inline-block pe-3 my-1" ><strong>Author:</strong> {author}</small>
                 <small className="d-inline-block pe-3 my-1"><strong>Category: </strong>
-                  <a as={Link} href="#" aria-role="button" aria-label="category button" link className="btn btn-danger btn-sm">
-                    {category}
-                  </a>
+                  {category.map((cat, index) => {
+                    const categorySlug = slugify(cat, {
+                      trim: true,
+                      replacement: '-',
+                      lower: true
+                    })
+                    return (
+                      <Link to={`/category/${categorySlug}`} key={index} role="button" aria-label="category button" link className="btn btn-danger btn-sm">
+                        {category}
+                      </Link>
+                    )
+                  })}
                 </small>
-                <small className="d-inline-block pe-3 my-1" ><strong>Tags:</strong> {tags.map((tag, index) => {
-                  const tagSlug = slugify(tag, { lowercase: true, trim: true, replacement: '-' })
-                  return (
-                    <Link key={index} to={`/tags/${tagSlug}`} aria-role="button" aria-label="category button" link className="btn btn-info btn-sm me-1 fs">
-                      {tag}
-                    </Link>
-                  )
-                })}</small>
+                <small className="d-inline-block pe-3 my-1" ><strong>Tags:</strong>
+
+                  {tags.map((tag, index) => {
+                    const tagSlug = slugify(tag, { lower: true, trim: true, replacement: '-' })
+                    return (
+                      <Link key={index} to={`/tags/${tagSlug}`} aria-role="button" aria-label="category button" link className="btn btn-info btn-sm me-1 fs">
+                        {tag}
+                      </Link>
+                    )
+                  })}</small>
               </div>
             </Col>
             <Col sm={12} xl={6} className="mx-auto p-3">
@@ -76,7 +86,7 @@ export default function ({ data }) {
             </div>
           </Col>
           <Col as="aside" xl={4}>
-            <TagsList tags={tags} />
+
           </Col>
         </Row>
       </Container>
