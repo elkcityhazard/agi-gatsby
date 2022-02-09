@@ -8,7 +8,9 @@ const headComponents = [
 ]
 
 
-export const onRenderBody = ({ setHeadComponents }) => {
-    return setHeadComponents(headComponents)
+
+export const onRenderBody = ({ setHeadComponents, setPostBodyComponents}) => {
+    setHeadComponents(headComponents)
 }
+
 

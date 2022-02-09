@@ -31,12 +31,12 @@ export default function Services({ data }) {
                 </Col>
             </Row>
             <Row>
+                <Col sm={12} lg={8} className="p-3 text-center blog-list">
                 {nodes.map((node, index) => (
-                    <Col key={node.id} sm={12} lg={9} className="mx-auto p-3 blog-list">
-                        <Card className="bg-dark text-white p-3 shadow">
+                        <Card key={node.id} className="bg-dark text-white p-3 mb-4 shadow">
                             <Card.Img src={node.featuredImage.gatsbyImageData.images.fallback.src} title={node.featuredImage.title} alt={node.featuredImage.title} width="300" className="mb-3 shadow" />
                             <Card.Title><h2 className="h5 fw-bold text-decoration-underline">{node.title}</h2></Card.Title>
-                            <Card.Text className="">
+                            <Card.Text className="text-start">
                                 <small className="d-inline-block pe-3 my-1"><strong>Publish Date:</strong> {new Date(node.publishDate).toLocaleDateString()}</small>
                                 <small className="d-inline-block pe-3 my-1" ><strong>Author:</strong> {node.author}</small>
                                 <small className="d-inline-block pe-3 my-1"><strong>Category: </strong>
@@ -51,7 +51,7 @@ export default function Services({ data }) {
                                         lower: true
                                     })
                                     return (
-                                        <Link key={index} to={`/tags/${categorySlug}`} aria-label="category button" className="btn btn-info btn-sm me-1 fs" >
+                                        <Link key={index} to={`/tags/${categorySlug}`} aria-label="category button" className="btn btn-info btn-sm me-1" >
                                             {tag}
                                         </Link>
                                     )
@@ -60,11 +60,12 @@ export default function Services({ data }) {
                             <Card.Text>
                                 {node.description.description}
                             </Card.Text>
-                            <Card.Text><Link className="btn btn-warning" to={`/blog/${node.slug}`}>{node.title}</Link></Card.Text>
+                            <Card.Text className="text-start"><Link className="btn btn-warning" to={`/blog/${node.slug}`}>{node.title}</Link></Card.Text>
                         </Card>
-                    </Col>
                 ))}
-                <Col><TagsList posts={nodes} /></Col>
+                    </Col>
+                
+                <Col as="aside" sm={12} lg={4}><TagsList posts={nodes} /></Col>
             </Row>
         </Container >
     )

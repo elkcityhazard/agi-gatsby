@@ -26,7 +26,7 @@ export default function MainNavBar() {
                       {link.children.map((child, index) => {
                         return (
                           <div key={index}>
-                            <NavDropdown.Item as={Link} href={child.url} variant="light" bg="light">{child.text}</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={child.url} variant="light" bg="light">{child.text}</NavDropdown.Item>
                             <NavDropdown.Divider />
                           </div>
                         )
@@ -34,13 +34,13 @@ export default function MainNavBar() {
                     </NavDropdown>
                   )
                 } else {
-                  return <Nav.Link as={Link} href={link.url} style={{ color: link.color }}>{link.text}</Nav.Link>
+                  return <Nav.Link as={Link} to={link.url} style={{ color: link.color }}>{link.text}</Nav.Link>
                 }
               })}
             </Nav>
             <Nav>
-              <Nav.Link href="tel:+19897089620" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">(989) 708-9620</Nav.Link>
-              <Nav.Link href="https://goo.gl/maps/WgyndTR66cCDbNLA7" target="_blank" rel="noreferrer nofollow" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">Directions</Nav.Link>
+              <Nav.Link to="tel:+19897089620" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">(989) 708-9620</Nav.Link>
+              <Nav.Link to="https://goo.gl/maps/WgyndTR66cCDbNLA7" target="_blank" rel="noreferrer nofollow" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">Directions</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -6,20 +6,19 @@ import slugify from 'slugify'
 
 import { Container, Row, Col } from 'react-bootstrap'
 
-import setupTags from '../utils/setupTags'
-import TagsList from '../components/TagsList'
+import setupCategories from '../utils/setupCategories'
 
-function Tags({ data }) {
-    console.log(data.allContentfulBlogPost.nodes)
-    const newTags = setupTags(data.allContentfulBlogPost.nodes)
-    console.log(newTags)
+function Category({ data }) {
+    const newCats = setupCategories(data.allContentfulBlogPost.nodes)
+    console.log(newCats)
     return (
         <>
             <main>
                 <Container as="section">
                     <Row className="flex-column">
-                        {newTags.map((tag, index) => {
-                            const [text, value] = tag
+                        {newCats.map((cat, index) => {
+                            console.log(cat)
+                            const [text, value] = cat
                             const slug = slugify(text, {
                                 trim: true,
                                 lower: true,
@@ -51,13 +50,13 @@ function Tags({ data }) {
     );
 }
 
-export default Tags;
+export default Category;
 
 export const tagsQuery = graphql`
-query getAllTags {
+query getAllCategories {
     allContentfulBlogPost {
       nodes {
-        tags
+        category
       }
     }
   }
