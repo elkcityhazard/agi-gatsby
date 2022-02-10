@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import { Helmet } from 'react-helmet'
+
 // Import Custom Components
 import MainLayout from '../components/MainLayout'
 import Header from '../components/Header'
@@ -22,9 +24,9 @@ const IndexPage = () => {
 
   return (
     <>
-    <Header title={title} subTitle={subTitle} />
-    <LocaleCard />
-    <ServiceSection />
+      <Header title={title} subTitle={subTitle} />
+      <LocaleCard />
+      <ServiceSection />
     </>
   )
 }
