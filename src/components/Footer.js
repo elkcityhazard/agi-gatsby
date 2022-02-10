@@ -34,7 +34,7 @@ export default function Footer() {
         </Col>
       </Row>
       <Row className="p-5">
-        <Col lg={4} className="mx-auto border-end mb-3">
+        <Col lg={2} className="mx-auto border-end mb-3">
           <h4>Our Promise</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
@@ -42,12 +42,13 @@ export default function Footer() {
             asperiores quisquam excepturi?
           </p>
         </Col>
-        <Col lg={2} className="mx-auto border-end mb-3">
+        <Col lg={4} className="mx-auto border-end mb-3">
           <h4>Subscribe</h4>
           <p>
             Subscribe for future tips, tricks, and promotions in your email
             inbox:
           </p>
+          <span data-sumome-listbuilder-embed-id="b8926bd52a1b9ca25b852cb292871b3f91bc99f59fd4f5941446c86e8c1e437d"></span>
         </Col>
         <Col lg={2} className="mx-auto border-end mb-3">
           <h4>Explore</h4>
