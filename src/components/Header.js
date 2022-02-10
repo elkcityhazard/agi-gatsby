@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 // Custom Bootstrap Import
-import { Container, Row, Col} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 // Import Custom Component
 import HeroBackground from "./BackgroundImage";
@@ -36,7 +36,7 @@ export default function Header({ title, subTitle }) {
   }, []);
   return (
     <HeroBackground>
-      <header className="main-header vh-100 p-3">
+      <header className="main-header p-3" style={{ minHeight: `100vh` }}>
         <Container>
           <Row className="align-items-center justify-content-center flex-column-reverse flex-lg-row">
             <Col lg={6}>
@@ -58,22 +58,22 @@ export default function Header({ title, subTitle }) {
               </h2>
               <a
                 href="tel:+19897089620"
-                className="btn btn-primary"
+                className="btn btn-primary mb-2 mx-1"
                 data-aos="fade"
                 data-aos-delay="1250"
                 data-aos-duration="1250"
               >
                 (989) 708-9620
               </a>
-              <a 
-              
-              href="https://tidycal.com/absolutely-gorgeous-interiors" 
-              target="_blank" 
-              rel="noreferrer nofollow" 
-              className="btn btn-primary ms-2"
-              data-aos="fade"
-              data-aos-delay="1250"
-              data-aos-duration="1250"
+              <a
+
+                href="https://tidycal.com/absolutely-gorgeous-interiors"
+                target="_blank"
+                rel="noreferrer nofollow"
+                className="btn btn-primary mb-2 mx-1"
+                data-aos="fade"
+                data-aos-delay="1250"
+                data-aos-duration="1250"
               >Free Consultation</a>
             </Col>
             <Col lg={6}>
@@ -86,7 +86,7 @@ export default function Header({ title, subTitle }) {
             </Col>
           </Row>
         </Container>
-        
+
       </header>
     </HeroBackground>
   );
