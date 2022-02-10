@@ -15,6 +15,9 @@ function Tags({ data }) {
     console.log(newTags)
     return (
         <>
+            <Row className="text-center">
+                <Col><h1>Tags</h1></Col>
+            </Row>
             <main>
                 <Container as="section">
                     <Row className="flex-column">
@@ -26,12 +29,12 @@ function Tags({ data }) {
                                 replacement: '-'
                             })
                             return (
-                            <Col md={6} className="mx-auto p-3 text-center">
-                            <Link to={`${slug}`} key={index} className="btn btn-lg d-block text-uppercase btn-outline-warning mx-auto my-3 p-3">
-                                <h3>{text}</h3>
-                                <p>{value}</p>
-                            </Link>
-                            </Col>
+                                <Col md={6} className="mx-auto p-3 text-center">
+                                    <Link to={`${slug}`} key={index} className="btn btn-lg d-block text-uppercase btn-outline-warning mx-auto my-3 p-3">
+                                        <h3>{text}</h3>
+                                        <p>{value}</p>
+                                    </Link>
+                                </Col>
                             )
 
                         })}
