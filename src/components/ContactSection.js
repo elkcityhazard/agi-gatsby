@@ -9,6 +9,7 @@ import validator from "validator";
 import "./ContactSection.scss";
 
 export default function ContactSection() {
+  const [loaded, setLoaded] = useState(null)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -16,50 +17,57 @@ export default function ContactSection() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const sendData = async (name, email, message) => {
-    setLoading(true);
-    name = validator.escape(name)
-    email = validator.escape(email)
-    message = validator.escape(message)
-    const postData = await fetch(`${process.env.GATSBY_MAIN_FORM_URI}`, {
-      method: "POST",
-      mode: "cors",
-      headers: {
-          "Accept" : "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({name, email, message}),
-    });
-    return postData;
-  };
+  useEffect(() => {
+    if (!loaded) {
+      setLoaded(true)
+    }
+  }, [])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setError(false)
+    setLoading(true)
+    setSuccess(false)
 
     if (!name || !email || !message) {
-      setError("Invalid form values.  Try again.");
+      return setError('invalid data entry')
     }
+
 
     if (!validator.isEmail(email)) {
-      setError("Invalid email value.  Try again");
+      return setError('invalid data entry.')
     }
 
-    const dataArray = new Array(name, message);
+    const cleanedName = validator.escape(name).trim();
+    const cleanedEmail = validator.escape(email).trim();
+    const cleanedMessage = validator.escape(message).trim();
 
-    return console.log(error)
+    const data = await fetch(process.env.GATSBY_MAIN_FORM_URI, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: cleanedName,
+        email: cleanedEmail,
+        message: cleanedMessage
+      })
+    });
+    if (data.status === 200) {
 
-    if (error === "") {
-      sendData(name, email, message).then((response) => {
-        console.log(response);
-        setError(false);
-        setLoading(false);
-        setSuccess("Your message has been successfully recorded");
-      });
+      const parsedData = await data.json();
+      const { data: { name, email, message } } = parsedData;
+      setError(false)
+      setLoading(false)
+      setSuccess("Thank you for messaging us.  We will review your email and get back to you!")
+      return console.log(name, email, message)
     } else {
-      setError("invalid data submission"); 
+      return setError('something went wrong')
     }
-  };
+
+  }
+
 
   return (
     <Container fluid bg="secondary" className="p-3">
@@ -75,54 +83,54 @@ export default function ContactSection() {
       </Row>
       <Row>
         <Col md={9} className="mx-auto">
-        {!success &&
-          <Form onSubmit={(e) => handleSubmit(e)}>
-            <Form.Group
-              className="mb-3"
-              controlId="primaryContactForm.ControlInput1"
-            >
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Enter your name"
-              />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="primaryContactForm.ControlInput2"
-            >
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="name@example.com"
-              />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="primaryContactForm.ControlTextarea1"
-            >
-              <Form.Label>Please enter your message</Form.Label>
-              <Form.Control
-                as="textarea"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                rows={5}
-              />
-            </Form.Group>
-            <Form.Group className="text-center">
-              <Button type="submit" className="mx-3" disabled={success ? true : false}>
-                Submit
-              </Button>
-              <Button type="reset" className="mx-3">
-                Reset
-              </Button>
-            </Form.Group>
-          </Form>
-            }
+          {!success &&
+            <Form onSubmit={(e) => handleSubmit(e)}>
+              <Form.Group
+                className="mb-3"
+                controlId="primaryContactForm.ControlInput1"
+              >
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your name"
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="primaryContactForm.ControlInput2"
+              >
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@example.com"
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="primaryContactForm.ControlTextarea1"
+              >
+                <Form.Label>Please enter your message</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  rows={5}
+                />
+              </Form.Group>
+              <Form.Group className="text-center">
+                <Button type="submit" className="mx-3" disabled={success ? true : false}>
+                  Submit
+                </Button>
+                <Button type="reset" className="mx-3">
+                  Reset
+                </Button>
+              </Form.Group>
+            </Form>
+          }
         </Col>
       </Row>
       <Row>

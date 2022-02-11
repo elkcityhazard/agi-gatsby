@@ -1,7 +1,12 @@
 import React from "react";
+
+import { useState, useEffect } from 'react';
+
+import { isEmail } from 'validator'
+
 import { Link } from "gatsby";
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Spinner } from "react-bootstrap";
 import { FaChevronRight, FaPhone } from "react-icons/fa";
 
 import links from "../constants/navlinks";
@@ -11,6 +16,63 @@ import links from "../constants/navlinks";
 import "./Footer.scss";
 
 export default function Footer() {
+
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false)
+  const [success, setSuccess] = useState(false)
+
+  useEffect(() => {
+
+  }, [])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setError(false)
+    setSuccess(false)
+    setLoading(false)
+
+    if (localStorage.getItem('newsletterEmail')) {
+      const currentEmail = email;
+      const storedEmail = JSON.parse(localStorage.getItem('newsletterEmail'))
+
+
+      if (storedEmail.email === currentEmail) {
+        setMessage('email has already been registered.')
+        return setError(message)
+      }
+    }
+
+    if (!isEmail(email)) {
+      setEmail('')
+      setLoading(false)
+      setSuccess(false)
+      return setError('invalid email')
+    }
+    setLoading(true)
+    const data = await fetch(`https://api.formcake.com/api/form/429bfcb7-273f-4528-be00-c6499525fe9c/submission`, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        location: 'footer-newsletter'
+      })
+    })
+    const parsedData = await data.json();
+    setSuccess(true);
+    setLoading(false)
+    console.log(data)
+    console.log(parsedData)
+    if (data.status === 200) {
+      localStorage.setItem('newsletterEmail', JSON.stringify({ email: parsedData.data.email }))
+    }
+    return parsedData
+
+  }
   return (
     <Container fluid as="footer" className="bg-dark text-light p-3">
       <Row className="p-3">
@@ -18,18 +80,11 @@ export default function Footer() {
           <h3 className="h1 border-bottom pb-3">
             Absolutely Gorgeous Interiors, LLC
           </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-            voluptatibus, optio itaque, earum doloribus laudantium quia tempore
-            nam, sequi ducimus perferendis reiciendis. Quas doloribus possimus a
-            quam, nihil reprehenderit laudantium. Reprehenderit animi eaque
-            quasi quia! Eius hic ad officiis praesentium dignissimos vel
-            voluptas eum ea architecto cum maxime tenetur, reprehenderit
-            officia. Dolorum fugit, rerum animi quis ea assumenda? Autem,
-            necessitatibus! Fuga cumque ad similique id, autem assumenda eaque
-            tempora asperiores a earum. Asperiores neque reprehenderit
-            provident, doloremque repellat minus, illum ipsa quis temporibus
-            repellendus quasi omnis totam inventore quibusdam id.
+          <p class="copy">
+            Your home should be both beautiful and accessible to all.  It should also be a reflection of you and also inspire your creativity.
+            Absolutely Gorgeous Interiors, LLC specializes in creating beautiful, accessible designs that everyone can enjoy.  Since 1991, customers
+            have been blown away by our designs, construction, and attention to details.  Let us help you create an accessible and beautiful space for your
+            family or business that will be enjoyed for years to come.  <a href="tel:+19897089620" title="free consultation">Call us today for a free consultation</a>
           </p>
         </Col>
       </Row>
@@ -37,9 +92,10 @@ export default function Footer() {
         <Col lg={2} className="mx-auto border-end mb-3">
           <h4>Our Promise</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            placeat, reprehenderit deleniti earum suscipit laborum similique cum
-            asperiores quisquam excepturi?
+            Spaces should be able to be enjoyed by everyone and anyone.
+            We promise to create a space that is beautiful, accessible,
+            and 100% inspiring to you, your family, or your customers.
+            <a href="tel:+19897089620" title="free consultation">Call us today for a free consultation</a>
           </p>
         </Col>
         <Col lg={4} className="mx-auto border-end mb-3">
@@ -48,7 +104,20 @@ export default function Footer() {
             Subscribe for future tips, tricks, and promotions in your email
             inbox:
           </p>
-          <span data-sumome-listbuilder-embed-id="b8926bd52a1b9ca25b852cb292871b3f91bc99f59fd4f5941446c86e8c1e437d"></span>
+          {error && <p className="text-warning">{message}</p>}
+          {success && <p>Thank you for signing up for our newsletter, {email}!</p>}
+          {loading && <Spinner animation="border" variant="danger" />}
+          {!success &&
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Label>Email Address:</Form.Label>
+                <Form.Control value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="growyourbusiness@agitraversebay.com" className="text-dark bg-light p-2" />
+              </Form.Group>
+              <Button type="submit">Submit</Button>
+            </Form>
+          }
+
+
         </Col>
         <Col lg={2} className="mx-auto border-end mb-3">
           <h4>Explore</h4>

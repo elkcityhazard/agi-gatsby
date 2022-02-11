@@ -18,4 +18,12 @@ footer {
             border-color: #fff !important;
         }
     }
+
+    p.copy {
+        line-height: 1.5;
+        margin: auto;
+        padding: 1rem;
+        max-width: 75ch;
+        text-align: left;
+    }
 }

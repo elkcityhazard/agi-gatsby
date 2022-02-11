@@ -60,6 +60,7 @@ export default function BookNow() {
             <Col xl={9} className="text-center mx-auto">
               <h3 className="h1 text-uppercase">Schedule A <span className="text-success">Free Consultation</span> Now</h3>
               <hr width="100px" className="mx-auto shadow text-white"></hr>
+              <p className="lead fw-bolder fs-3">Our "why" is to see the joy on their face when their space is beautiful, accessible, and inspiring.  We would love to hear yours.</p>
             </Col>
             <Col xl={9} className="mx-auto text-center d-flex align-items-center justify-content-center">
               <a href="https://tidycal.com/absolutely-gorgeous-interiors" target="_parent" rel="noreferrer" className="btn btn-large shadow-lg rounded-pill btn-warning">Schedule Now< /a>

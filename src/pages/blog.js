@@ -32,26 +32,34 @@ export default function Services({ data }) {
             </Row>
             <Row>
                 <Col sm={12} lg={8} className="p-3 text-center blog-list">
-                {nodes.map((node, index) => (
-                        <Card key={node.id} className="bg-dark text-white p-3 mb-4 shadow">
+                    {nodes.map((node, index) => (
+
+                        < Card key={node.id} className="bg-dark text-white p-3 mb-4 shadow" >
                             <Card.Img src={node.featuredImage.gatsbyImageData.images.fallback.src} title={node.featuredImage.title} alt={node.featuredImage.title} width="300" className="mb-3 shadow" />
                             <Card.Title><h2 className="h5 fw-bold text-decoration-underline">{node.title}</h2></Card.Title>
                             <Card.Text className="text-start">
                                 <small className="d-inline-block pe-3 my-1"><strong>Publish Date:</strong> {new Date(node.publishDate).toLocaleDateString()}</small>
                                 <small className="d-inline-block pe-3 my-1" ><strong>Author:</strong> {node.author}</small>
                                 <small className="d-inline-block pe-3 my-1"><strong>Category: </strong>
-                                    <a as={Link} href="#" aria-role="button" aria-label="category button" link className="btn btn-danger btn-sm">
-                                        {node.category}
-                                    </a>
+                                    {node.category.map((cat, index) => {
+                                        const catSlug = slugify(cat, {
+                                            trim: true,
+                                            lower: true,
+                                            replacement: '-'
+                                        })
+                                        return <Link to={`/category/${catSlug}`} aria-role="button" aria-label="category button" link className="btn btn-danger btn-sm">
+                                            {node.category}
+                                        </Link>
+                                    })}
                                 </small>
                                 <small className="d-inline-block pe-3 my-1" ><strong>Tags:</strong> {node.tags.map((tag, index) => {
-                                    const categorySlug = slugify(tag, {
+                                    const tagSlug = slugify(tag, {
                                         trim: true,
                                         replacement: '-',
                                         lower: true
                                     })
                                     return (
-                                        <Link key={index} to={`/tags/${categorySlug}`} aria-label="category button" className="btn btn-info btn-sm me-1" >
+                                        <Link key={index} to={`/tags/${tagSlug}`} aria-label="category button" className="btn btn-info btn-sm me-1" >
                                             {tag}
                                         </Link>
                                     )
@@ -62,9 +70,9 @@ export default function Services({ data }) {
                             </Card.Text>
                             <Card.Text className="text-start"><Link className="btn btn-warning" to={`/blog/${node.slug}`}>{node.title}</Link></Card.Text>
                         </Card>
-                ))}
-                    </Col>
-                
+                    ))}
+                </Col>
+
                 <Col as="aside" sm={12} lg={4}><TagsList posts={nodes} /></Col>
             </Row>
         </Container >

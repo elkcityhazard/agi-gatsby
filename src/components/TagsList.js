@@ -24,7 +24,7 @@ function TagsList({ posts }) {
                         {newTags.map((tag, index) => {
                             const [text, value] = tag
                             const tagSlug = slugify(text, { lower: true, trim: true, replacement: '-' })
-                            return <Link to={`/tags/${tagSlug}`} key={index} className="d-block mb-2">{text} ({value})</Link>
+                            return <Link to={`/tags/${tagSlug}`} key={index} className="d-block mb-2 btn btn-outline-info text-start">{text} ({value})</Link>
                         })}
                     </div>
                 </Col>
