@@ -65,7 +65,7 @@ export default function ({ data }) {
                   {tags.map((tag, index) => {
                     const tagSlug = slugify(tag, { lower: true, trim: true, replacement: '-' })
                     return (
-                      <Link key={index} to={`/tags/${tagSlug}`} aria-role="button" aria-label="category button" link className="btn btn-info btn-sm me-1 fs">
+                      <Link key={index} to={`/tags/${tagSlug}`} aria-role="button" aria-label="category button" link className="btn btn-info btn-sm m-2 fs">
                         {tag}
                       </Link>
                     )
