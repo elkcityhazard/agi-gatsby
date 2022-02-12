@@ -89,6 +89,14 @@ module.exports = {
       __key: "gallery",
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "markdown-pages",
+        path: `${__dirname}/src/markdown-pages`,
+      },
+      __key: "markdown-pages",
+    },
+    {
       resolve: "gatsby-plugin-sumo",
       options: {
         sumoSiteId: '7b6f548845c0146f30c426c9ee4531ad9d946e3e37866aefc4703b5d2b5c8cbe'

@@ -98,7 +98,7 @@ export default function Footer() {
             <a href="tel:+19897089620" title="free consultation">Call us today for a free consultation</a>
           </p>
         </Col>
-        <Col lg={4} className="mx-auto border-end mb-3">
+        <Col lg={2} className="mx-auto border-end mb-3">
           <h4>Subscribe</h4>
           <p>
             Subscribe for future tips, tricks, and promotions in your email
@@ -133,7 +133,17 @@ export default function Footer() {
                 </Link>
               </span>
             ))}
+
           </nav>
+        </Col>
+        <Col lg={2} className="mx-auto mb-3">
+          <h4>Legal Stuff</h4>
+          <span className="d-block animate-chevron"><Link to="/privacy-policy" aria-label="privacy policy" title="privacy policy" target="_blank" rel="noreferrer nofollow" className="text-warning text-decoration-none"><FaChevronRight className="text-white" /> Privacy Policy</Link></span>
+          <span className="d-block animate-chevron"><Link to="/terms-of-service" aria-label="terms of service" title="terms of service" target="_blank" rel="noreferrer nofollow" className="text-warning text-decoration-none"><FaChevronRight className="text-white" /> Terms Of Service</Link></span>
+          <span className="d-block animate-chevron"><Link to="/cookie-policy" aria-label="cookie policy" title="cookie policy" target="_blank" rel="noreferrer nofollow" className="text-warning text-decoration-none"><FaChevronRight className="text-white" /> Cookie Policy</Link></span>
+          <span className="d-block animate-chevron"><Link to="/general-disclaimer" aria-label="general disclaimer" title="general disclaimer" target="_blank" rel="noreferrer nofollow" className="text-warning text-decoration-none"><FaChevronRight className="text-white" /> General Disclaimer</Link></span>
+          <span className="d-block animate-chevron"><Link to="/refund-policy" aria-label="refund policy" title="refund policy" target="_blank" rel="noreferrer nofollow" className="text-warning text-decoration-none"><FaChevronRight className="text-white" /> Refund Policy</Link></span>
+          <span className="d-block animate-chevron"><Link to="/shipping-policy" aria-label="shipping policy" title="shipping policy" target="_blank" rel="noreferrer nofollow" className="text-warning text-decoration-none"><FaChevronRight className="text-white" /> Shipping Policy</Link></span>
         </Col>
         <Col lg={4} className="mx-auto mb-3">
           <h4>Find Us</h4>
