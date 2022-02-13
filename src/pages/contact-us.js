@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
-import { FaPhoneSquareAlt, FaEnvelopeSquare, FaDirections, FaFacebookSquare, FaInstagramSquare } from 'react-icons/fa'
+import { FaPhoneSquareAlt, FaEnvelopeSquare, FaDirections, FaFacebookSquare, FaInstagramSquare, FaRegCalendarAlt } from 'react-icons/fa'
 
 import ContactSection from '../components/ContactSection'
 import BookNow from '../components/BookNow';
@@ -36,7 +36,12 @@ export default function ContactUs() {
                         <ul className="list-group mb-3">
                             <li className="list-group-item"><FaPhoneSquareAlt size={32} className="text-warning me-2" /> <a href="tel:+19897089620" aria-label="Call Absolutely Gorgeous Interiors" title="Call Absolutely Gorgeous Interiors" className="fw-medium text-decoration text-uppercase my-2 mx-auto text-muted">Call Us Now (989) 708-9620</a></li>
                             <li className="list-group-item"><FaEnvelopeSquare size={32} className="text-warning me-2" /> <a href="mailto:mark@agitraversebay.com" aria-label="Email Mark Delikta" title="Email Mark Delikta" className="fw-medium text-decoration text-uppercase my-2 mx-auto text-muted">mark@agitraversebay.com</a> </li>
-                            <li className="list-group-item"><FaEnvelopeSquare size={32} className="text-warning me-2" /> <a href="mailto:don@agitraversebay.com" aria-label="Email Donald" title="Email Donald" className="fw-medium text-decoration text-uppercase my-2 mx-auto text-muted">don@agitraversebay.com 👉 Concrete Questions</a> </li>
+                            <li className="list-group-item"><FaRegCalendarAlt size={32} className="text-warning me-2" /><span>Schedule an Interior Construction Consult: </span><a href="https://tidycal.com/absolutely-gorgeous-interiors/free-30-minute-interior-construction-consultation" title="free concrete project consultation" className="fw-medium text-decoration text-uppercase my-2 mx-auto text-muted" aria-label="schedule a concrete consultation" rel="nofollow noreferrer">Free Project Consultation</a></li>
+                        </ul>
+                        <h2 className="h3 text-uppercase">Concrete Projects</h2>
+                        <ul className="list-group mb-3">
+                            <li className="list-group-item"><FaEnvelopeSquare size={32} className="text-warning me-2" /> <a href="mailto:don@agitraversebay.com" aria-label="Email Donald" title="Email Donald" className="fw-medium text-decoration text-uppercase my-2 mx-auto text-muted">don@agitraversebay.com</a> </li>
+                            <li className="list-group-item"><FaRegCalendarAlt size={32} className="text-warning me-2" /><span>Schedule A Concrete Consult: </span><a href="https://tidycal.com/absolutely-gorgeous-interiors/30-minute-free-concrete-project-consultation" title="free concrete project consultation" className="fw-medium text-decoration text-uppercase my-2 mx-auto text-muted" aria-label="schedule a concrete consultation" rel="nofollow noreferrer">Free Concrete Project Consultation</a></li>
                         </ul>
                     </div>
                     <div className="d-block mb-3 border-bottom">
