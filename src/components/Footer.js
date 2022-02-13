@@ -173,7 +173,12 @@ export default function Footer() {
           ></iframe>
         </Col>
       </Row>
-    </Container>
+      <Row className="text-center p-3">
+        <Col>
+          <p>Copyright {new Date().getFullYear()} - Absolutely Gorgeous Interiors, LLC | website designed & hosted by <a href="https://www.andrew-mccall.com/" aria-label="link to andrew-mccall.com">andrew m mccall</a><span className="wave">👋</span></p>
+        </Col>
+      </Row>
+    </Container >
   );
 }
 

@@ -9,19 +9,30 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container, Row, Col, Card } from 'react-bootstrap'
 
 import ServiceCard from '../components/ServiceCard'
-import ContentfulBlogSlug from './blog/{ContentfulBlogPost.slug}'
+import ContentfulBlogSlug from '../pages/blog/{ContentfulBlogPost.slug}'
 import TagsList from '../components/TagsList'
 
-import './blog.scss'
+import '../pages/blog.scss'
+
+export default function BlogListTemplate(props) {
+
+    const { currentPage, numPages } = props.pageContext
+
+    const isFirst = currentPage === 1
+    const isLast = currentPage === numPages
+
+    const prevPage = currentPage - 1 === 1 ? "" : (currentPage - 1).toString();
+    const nextPage = (currentPage + 1).toString();
+
+    console.log(props)
+
+    const { allContentfulBlogPost: { nodes } } = props.data;
 
 
 
-export default function Services({ data }) {
-    const { allContentfulBlogPost: { nodes } } = data
-    console.log(nodes)
     return (
-        <Container>
-            <Row>
+        <Container className="header-gradient">
+            <Row as="header">
                 <Col sm={12} lg={9} className="mx-auto p-3 text-center">
                     <h1>Keep Up On DIY Tips & Industry Updates</h1>
                 </Col>
@@ -30,7 +41,7 @@ export default function Services({ data }) {
                         on current construction industry trends, we have it here!</p>
                 </Col>
             </Row>
-            <Row>
+            <Row className="flex-direction-start mx-auto" style={{ maxWidth: `100ch` }}>
                 <Col sm={12} lg={8} className="p-3 text-center blog-list">
                     {nodes.map((node, index) => (
 
@@ -65,24 +76,34 @@ export default function Services({ data }) {
                                     )
                                 })}</small>
                             </Card.Text>
-                            <Card.Text>
+                            <Card.Text className="text-start">
                                 {node.description.description}
                             </Card.Text>
                             <Card.Text className="text-start"><Link className="btn btn-warning" to={`/blog/${node.slug}`}>{node.title}</Link></Card.Text>
                         </Card>
                     ))}
+                    {!isFirst && (
+                        <Link to={`/blog/${prevPage}`} className="btn btn-info m-2" rel="prev">
+                            ← Previous Page
+                        </Link>
+                    )}
+                    {!isLast && (
+                        <Link to={`/blog/${nextPage}`} className="btn btn-info m-2" rel="next" disabled={currentPage === numPages ? true : false}>
+                            Next Page →
+                        </Link>
+                    )}
                 </Col>
 
                 <Col as="aside" sm={12} lg={4}><TagsList posts={nodes} /></Col>
             </Row>
         </Container >
     )
-
 }
 
-export const data = graphql`
-query getAllBlogPosts {
-    allContentfulBlogPost {
+
+export const paginatGetAllBlogPosts = graphql`
+query paginateGetAllBlogPosts($skip: Int!, $limit: Int!) {
+    allContentfulBlogPost(skip: $skip, limit: $limit, sort: {fields: publishDate}) {
       nodes {
         id
         author
@@ -110,4 +131,5 @@ query getAllBlogPosts {
         tags
       }
     }
-  }`
+  }
+`

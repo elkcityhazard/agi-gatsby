@@ -24,6 +24,25 @@ exports.createPages = async ({ graphql, actions: { createPage } }, reporter) => 
         reporter.panicOnBuild(`Error with graphql query`)
     }
 
+
+    const posts = result.data.allContentfulBlogPost.nodes;
+
+    const postsPerPage = 1
+    const numPages = Math.ceil(posts.length / postsPerPage)
+    Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+            path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
+            component: path.resolve('./src/templates/blog-list-template.js'),
+            context: {
+                limit: postsPerPage,
+                skip: i * postsPerPage,
+                currentPage: i + 1,
+                numPages: numPages
+            },
+        })
+    })
+
+
     result.data.allContentfulBlogPost.nodes.forEach((post) => {
         console.log(post)
         post.tags.forEach((tag) => {
@@ -57,4 +76,16 @@ exports.createPages = async ({ graphql, actions: { createPage } }, reporter) => 
         })
     })
 
+}
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+    const { createNodeField } = actions
+    if (node.internal.type === `allContentfulBlogPost`) {
+        const value = createFilePath({ node, getNode })
+        createNodeField({
+            name: `slug`,
+            node,
+            value,
+        })
+    }
 }
