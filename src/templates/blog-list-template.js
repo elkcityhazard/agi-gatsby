@@ -94,7 +94,7 @@ export default function BlogListTemplate(props) {
                     )}
                 </Col>
 
-                <Col as="aside" sm={12} lg={4}><TagsList posts={nodes} /></Col>
+                <Col as="aside" sm={12} lg={4}><TagsList /></Col>
             </Row>
         </Container >
     )

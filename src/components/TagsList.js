@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 import slugify from 'slugify'
 
@@ -8,11 +8,24 @@ import { Container, Row, Col } from 'react-bootstrap'
 import setupTags from '../utils/setupTags'
 
 
-function TagsList({ posts }) {
+function TagsList() {
 
-    const newTags = setupTags(posts)
+    const data = useStaticQuery(graphql`
+    query getAllTagsQuery {
+        allContentfulBlogPost {
+          nodes {
+            tags
+          }
+        }
+      }
+    `)
 
-    if (!posts) {
+    const { allContentfulBlogPost: { nodes } } = data
+
+    const newTags = setupTags(nodes)
+
+    if (!data) {
+        console.log('error, no posts found')
         return null
     }
     return (
@@ -34,3 +47,4 @@ function TagsList({ posts }) {
 }
 
 export default TagsList;
+

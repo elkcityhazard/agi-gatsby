@@ -5,7 +5,7 @@ const links = [
     url: "/services/traverse-city-home-builder",
     description:
       "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
+    color: "#333",
   },
   {
     text: "Services",
@@ -42,28 +42,28 @@ const links = [
         icon: "<FaHome />"
       }
     ],
-    color: "#1099A8",
+    color: "#333",
   },
   {
     text: "Get In Touch",
     url: "/contact-us",
-    color: "#BC027F",
+    color: "#333",
   },
   {
     text: "About Us",
     url: "/about-us",
-    color: "#0D96F2",
+    color: "#333",
   },
   {
     text: "Gallery",
     url: "/gallery",
-    color: "#8EB814",
+    color: "#333",
   },
   {
     text: "Our Blog",
     url: "/blog",
     badge: true,
-    color: "#663399",
+    color: "#333",
   },
 ]
 

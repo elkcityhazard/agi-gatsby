@@ -110,24 +110,24 @@ export default function Gallery() {
                 </Col>
               </Row>
             </Container>
-            <FaChevronCircleLeft
-              aria-role="button"
-              aria-label="decrement gallery slide"
-              className="text-white"
-              disabled={imgIndex === 0 ? true : false}
-              id="prevSlide"
-              size={40}
-              onClick={() => {
-                setAnimate(false)
-                setFade(false)
-                setLoading(true)
-                decrement(imgIndex)
-              }} />
-            <FaChevronCircleRight as="button"
+            {imgIndex > 0 &&
+              <FaChevronCircleLeft
+                aria-role="button"
+                aria-label="decrement gallery slide"
+                className="text-white"
+                id="prevSlide"
+                size={40}
+                onClick={() => {
+                  setAnimate(false)
+                  setFade(false)
+                  setLoading(true)
+                  decrement(imgIndex)
+                }} />
+            }
+            {imgIndex !== nodes.length - 1 && <FaChevronCircleRight as="button"
               aria-role="button"
               aria-label="increment gallery slide"
               className="text-white"
-              disabled={imgIndex == nodes.length - 1 ? "true" : false}
               id="nextSlide"
               size={40}
               onClick={() => {
@@ -136,6 +136,7 @@ export default function Gallery() {
                 setLoading(true)
                 increment(imgIndex)
               }} />
+            }
           </div>
         </section>
       }
