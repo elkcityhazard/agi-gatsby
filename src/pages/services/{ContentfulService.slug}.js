@@ -27,15 +27,17 @@ export default function ServiceTemplate({ data }) {
   return (
     <Container as="main" className="mx-auto">
       <Row className="p-3">
-        <Col md={9} className="mx-auto p-3 text-center">
+        <Col xl={8} className="mx-auto p-3 text-center text-xl-start">
           <h1 className="mb-3">{title}</h1>
           <GatsbyImage image={gatsbyImageData} alt={title} className="mb-3" />
           <p className="text-start mb-3 mx-auto" style={{ maxWidth: `75ch` }}>{description}</p>
         </Col>
+        <Col xl={4} className="mx-auto p-3 text-center">
+          <ContactAside title="Get A Free Quote" options={serviceOptions} />
+        </Col>
       </Row>
       <Row as="section">
         <Col lg={3} className="mb-3" >
-          <ContactAside title="Get A Free Quote" options={serviceOptions} />
           <Col className="text-center p-3 mx-auto">
             <h3 className="h3 text-uppercase text-start">Schedule A <span className="text-success">Free Consultation</span> Now</h3>
             <hr width="100px" className="mx-auto shadow text-white"></hr>

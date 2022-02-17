@@ -8,7 +8,7 @@ import validator from "validator";
 // Custom CSS
 import "./ContactSection.scss";
 
-export default function ContactSection( {title, options} ) {
+export default function ContactSection({ title, options }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -25,10 +25,10 @@ export default function ContactSection( {title, options} ) {
       method: "POST",
       mode: "cors",
       headers: {
-          "Accept" : "application/json",
+        "Accept": "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({name, email, message}),
+      body: JSON.stringify({ name, email, message }),
     });
     return postData;
   };
@@ -57,77 +57,77 @@ export default function ContactSection( {title, options} ) {
         setSuccess("Your message has been successfully recorded");
       });
     } else {
-      setError("invalid data submission"); 
+      setError("invalid data submission");
     }
   };
 
   return (
-    <Container fluid bg="secondary" className="p-3">
+    <Container fluid bg="secondary" className="p-3 border border-warning shadow text-start rounded">
       <Row className="p-3">
         <Col className="mx-auto">
-            <h3 className="h3 text-uppercase">
-              Get <span className="text-success fw-bold">A  Free</span> Qoute
-            </h3>
+          <h3 className="h3 text-uppercase">
+            Get <span className="text-success fw-bold">A  Free</span> Qoute
+          </h3>
         </Col>
       </Row>
       <Row>
         <Col className="mx-auto">
-        {!success &&
-          <Form onSubmit={(e) => handleSubmit(e)}>
-            <Form.Group
-              className="mb-3"
-              controlId="primaryContactForm.ControlInput1"
-            >
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Enter your name"
-              />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="primaryContactForm.ControlInput2"
-            >
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="name@example.com"
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
+          {!success &&
+            <Form onSubmit={(e) => handleSubmit(e)}>
+              <Form.Group
+                className="mb-3"
+                controlId="primaryContactForm.ControlInput1"
+              >
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your name"
+                />
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="primaryContactForm.ControlInput2"
+              >
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@example.com"
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
                 <Form.Label className="my-3">Contact me about these services:</Form.Label>
                 <Form.Select aria-label="service selection">
-                    {options.map((option, index) => {
-                        return <option key={index} value={option}>{option}</option>
-                    })}
+                  {options.map((option, index) => {
+                    return <option key={index} value={option}>{option}</option>
+                  })}
                 </Form.Select>
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="primaryContactForm.ControlTextarea1"
-            >
-              <Form.Label>Please enter your message</Form.Label>
-              <Form.Control
-                as="textarea"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                rows={5}
-              />
-            </Form.Group>
-            <Form.Group className="text-center">
-              <Button variant="warning" type="submit" className="d-block w-100 mb-3 me-auto" disabled={success ? true : false}>
-                Submit
-              </Button>
-              <Button variant="secondary" type="reset" className="d-block w-100 mb-3 me-auto">
-                Reset
-              </Button>
-            </Form.Group>
-          </Form>
-            }
+              </Form.Group>
+              <Form.Group
+                className="mb-3"
+                controlId="primaryContactForm.ControlTextarea1"
+              >
+                <Form.Label>Please enter your message</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  rows={5}
+                />
+              </Form.Group>
+              <Form.Group className="text-center">
+                <Button variant="warning" type="submit" className="d-block w-100 mb-3 me-auto" disabled={success ? true : false}>
+                  Submit
+                </Button>
+                <Button variant="secondary" type="reset" className="d-block w-100 mb-3 me-auto">
+                  Reset
+                </Button>
+              </Form.Group>
+            </Form>
+          }
         </Col>
       </Row>
       <Row>
