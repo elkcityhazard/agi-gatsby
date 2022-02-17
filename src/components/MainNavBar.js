@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 import links from '../constants/navlinks';
 
 // React Bootstrap Imports
@@ -13,20 +14,20 @@ import './MainNavBar.scss'
 export default function MainNavBar() {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand as={Link} to="/">AGI</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/"><StaticImage src="../images/logos/agi-logo-idea-840x540.png" alt="brand logo" height="175" width="300" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               {links.map((link, index) => {
                 if (link.children) {
                   return (
-                    <NavDropdown key={index} title={link.text} id="collasible-nav-dropdown" variant="light" bg="light">
+                    <NavDropdown key={index} title={link.text} id="collasible-nav-dropdown" variant="dark" bg="dark">
                       {link.children.map((child, index) => {
                         return (
                           <div key={index}>
-                            <NavDropdown.Item as={Link} to={child.url} variant="light" bg="light">{child.text}</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={child.url} variant="dark" bg="dark">{child.text}</NavDropdown.Item>
                             <NavDropdown.Divider />
                           </div>
                         )
@@ -34,7 +35,7 @@ export default function MainNavBar() {
                     </NavDropdown>
                   )
                 } else {
-                  return <Nav.Link as={Link} to={link.url} style={{ color: link.color }}>{link.text}</Nav.Link>
+                  return <Nav.Link as={Link} to={link.url} bg="dark" variant="dark">{link.text}</Nav.Link>
                 }
               })}
             </Nav>
