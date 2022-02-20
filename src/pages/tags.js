@@ -41,15 +41,6 @@ function Tags({ data }) {
                     </Row>
                 </Container>
             </main >
-            {/* <aside>
-                <Container>
-                    <Row>
-                        <Col>
-                            <TagsList posts={data.allContentfulBlogPost.nodes} />
-                        </Col>
-                    </Row>
-                </Container>
-            </aside> */}
         </>
     );
 }

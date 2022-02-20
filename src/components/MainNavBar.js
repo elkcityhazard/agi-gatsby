@@ -15,8 +15,8 @@ export default function MainNavBar() {
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand as={Link} to="/"><StaticImage src="../images/logos/agi-logo-idea-840x540.png" alt="brand logo" height="175" width="300" /></Navbar.Brand>
+        <Container fluid className="px-3">
+          <Navbar.Brand as={Link} to="/"><StaticImage src="../images/logos/logo-ideas/agi-logo-idea-840x540-light-symbol.png" alt="brand logo" height="175" width="300" loading="lazy" placeholder="traced_svg" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">

@@ -13,31 +13,31 @@ import ServiceCard from '../components/ServiceCard'
 //
 
 function CategoryTemplate({ data: { allContentfulBlogPost: { nodes } }, pageContext }) {
-    console.log(nodes, pageContext)
-    return (
-        <>
-            <Container as="main">
-                <Row className="p-3">
-                    <Col className="text-center mx-auto p-3"><h1>{pageContext.category}</h1></Col>
-                </Row>
-                <Row as="section">
-                    {nodes.map((category, index) => {
-                        const { title, slug, image, description } = category
-                        const newSlug = slugify(slug, {
-                            trim: true,
-                            replacement: '-',
-                            lower: true
-                        })
-                        return (
-                            <Col key={index} className="mx-auto p-3">
-                                <ServiceCard text={title} url={`/blog/${newSlug}`}></ServiceCard>
-                            </Col>
-                        )
-                    })}
-                </Row>
-            </Container>
-        </>
-    )
+  console.log(nodes, pageContext)
+  return (
+    <>
+      <Container as="main" >
+        <Row className="p-3">
+          <Col className="text-center mx-auto p-3"><h1>{pageContext.category}</h1></Col>
+        </Row>
+        <Row as="section">
+          {nodes.map((category, index) => {
+            const { title, slug, image, description } = category
+            const newSlug = slugify(slug, {
+              trim: true,
+              replacement: '-',
+              lower: true
+            })
+            return (
+              <Col key={index} className="mx-auto p-3">
+                <ServiceCard text={title} url={`/blog/${newSlug}`}></ServiceCard>
+              </Col>
+            )
+          })}
+        </Row>
+      </Container>
+    </>
+  )
 }
 
 export default CategoryTemplate;

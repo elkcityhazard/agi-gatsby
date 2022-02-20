@@ -1,11 +1,12 @@
 .service-card {
     max-width: 100%;
+    width: 100%;
 
     @media screen and (min-width: 968px) {
         max-width: 70%;
     }
 
     @media screen and (min-width: 1200px) {
-        max-width: 350px;
+        max-width: 100ch;
     }
 }
