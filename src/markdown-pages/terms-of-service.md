@@ -2,6 +2,7 @@
 title: "Terms & Conditions"
 date: "2022-02-12"
 slug: "terms-of-service"
+description: "Absolutely Gorgeous Interiors is a full service interior firm serving Grand Traverse County. We are a company dedicated to providing our clients with the highest quality of workmanship and customer service."
 ---
 
 **Absolutely Gorgeous Interiors, LLC**

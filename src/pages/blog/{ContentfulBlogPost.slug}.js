@@ -4,6 +4,8 @@ import { graphql, Link } from 'gatsby';
 
 import slugify from 'slugify'
 
+import SEO from '../../components/SEO'
+
 import BookNow from '../../components/BookNow'
 
 import TagsList from '../../components/TagsList'
@@ -11,6 +13,8 @@ import TagsList from '../../components/TagsList'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import { Container, Row, Col, Button, Form } from 'react-bootstrap'
+
+
 
 // Custom CSS
 
@@ -37,6 +41,7 @@ export default function ({ data }) {
 
   return (
     <>
+      <SEO title={title} description={description}></SEO>
       <header className="p-3" style={{ minHeight: `50vh` }}>
         <Container>
           <Row>

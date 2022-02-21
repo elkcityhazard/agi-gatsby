@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import { Helmet } from 'react-helmet'
-
 // Custom Components
 
 import MainNavBar from './MainNavBar'

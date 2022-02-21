@@ -7,15 +7,18 @@ import { graphql } from 'gatsby';
 import slugify from 'slugify'
 
 import ServiceCard from '../components/ServiceCard'
+import SEO from '../components/SEO'
 
-//
-// text, icon, aos, image, description, url
-//
+const title = "Category Taxonomies"
+const description = '';
 
 function CategoryTemplate({ data: { allContentfulBlogPost: { nodes } }, pageContext }) {
   console.log(nodes, pageContext)
   return (
     <>
+      <SEO title={pageContext.category} description={pageContext.description}>
+
+      </SEO>
       <Container as="main" >
         <Row className="p-3">
           <Col className="text-center mx-auto p-3"><h1>{pageContext.category}</h1></Col>

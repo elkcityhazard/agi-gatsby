@@ -7,7 +7,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://www.agitraversebay.com",
+    description: "We are a luxury interior construction company In Traverse City Michigan.  We specialize in concrete, tile, flooring, and accessible building.",
     title: "Absolutely Gorgeous Interiors",
   },
   plugins: [

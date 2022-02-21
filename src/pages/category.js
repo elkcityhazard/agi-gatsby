@@ -10,11 +10,18 @@ import setupCategories from '../utils/setupCategories'
 
 import CategoryList from '../components/CategoryList'
 
+import SEO from '../components/SEO'
+
+const title = "Category Taxonomies"
+const description = '';
+
 function Category({ data }) {
     const newCats = setupCategories(data.allContentfulBlogPost.nodes)
-    console.log(newCats)
     return (
         <>
+            <SEO title={title} description={description}>
+
+            </SEO>
             <Container className="mx-auto">
                 <Row className="text-center">
                     <Col>

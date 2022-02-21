@@ -2,6 +2,7 @@
 title: "Cookie Policy - Absolutely Gorgeous Interiors, LLC"
 date: "2022-02-12"
 slug: "cookie-policy"
+description: " Absolutely Gorgeous Interiors is a full service interior design, remodel, and building business that specializes in kitchens, baths, additions, and commercial remodels."
 ---
 
 
