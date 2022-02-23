@@ -17,6 +17,10 @@ import "aos/dist/aos.css";
 
 import './gallery.scss'
 
+// SEO 
+
+import SEO from '../components/SEO'
+
 export default function Gallery() {
 
   const data = useStaticQuery(query)
@@ -74,101 +78,104 @@ export default function Gallery() {
 
 
   return (
-    <Container as="main" className="mx-auto p-3">
-      <Row className="mb-3">
-        <Col className="mx-auto p-3 text-center">
-          <h1>Gallery: Some Of Our Recent Work</h1>
-        </Col>
-      </Row>
-      {open &&
-        <section
-          data-aos="fade"
-          data-aos-delay="0"
-          data-aos-duration="1250"
-          className="gallery-wrapper mx-auto text-center">
-          <div className="inner-wrapper">
-            <Container className="mx-auto p-3">
-              <FaTimes size={40} className="ms-auto me-2 text-white shadow-md spin" onClick={() => setOpen(false)} />
-              <Row className="text-center">
-                <Col sm={12} className="d-flex align-items-center justify-content-center mx-auto text-center">
-                  {
-                    loading && <Spinner animation="border" variant="warning" className="mx-auto" />
-                  }
-                  {
-                    error && <p className="text-center p-3">Cannot fetch image at this time.</p>
-                  }
-                  {!loading &&
-                    <GatsbyImage
-                      className="fade-in mx-auto my-4 rounded-lg"
-                      layout="constrained"
-                      image={gatsbyImageData}
-                      height={gatsbyImageData.height}
-                      width={gatsbyImageData.width}
+    <>
+      <SEO title="Example Of Ours Works" description="Absolutely Gorgeous Interiors is an interior and exterior construction group based in Traverse City, Michigan" />
+      <Container as="main" className="mx-auto p-3">
+        <Row className="mb-3">
+          <Col className="mx-auto p-3 text-center">
+            <h1>Gallery: Some Of Our Recent Work</h1>
+          </Col>
+        </Row>
+        {open &&
+          <section
+            data-aos="fade"
+            data-aos-delay="0"
+            data-aos-duration="1250"
+            className="gallery-wrapper mx-auto text-center">
+            <div className="inner-wrapper">
+              <Container className="mx-auto p-3">
+                <FaTimes size={40} className="ms-auto me-2 text-white shadow-md spin" onClick={() => setOpen(false)} />
+                <Row className="text-center">
+                  <Col sm={12} className="d-flex align-items-center justify-content-center mx-auto text-center">
+                    {
+                      loading && <Spinner animation="border" variant="warning" className="mx-auto" />
+                    }
+                    {
+                      error && <p className="text-center p-3">Cannot fetch image at this time.</p>
+                    }
+                    {!loading &&
+                      <GatsbyImage
+                        className="fade-in mx-auto my-4 rounded-lg"
+                        layout="constrained"
+                        image={gatsbyImageData}
+                        height={gatsbyImageData.height}
+                        width={gatsbyImageData.width}
 
-                    />
-                  }
-                </Col>
-              </Row>
-            </Container>
-            {imgIndex > 0 &&
-              <FaChevronCircleLeft
+                      />
+                    }
+                  </Col>
+                </Row>
+              </Container>
+              {imgIndex > 0 &&
+                <FaChevronCircleLeft
+                  aria-role="button"
+                  aria-label="decrement gallery slide"
+                  className="text-white"
+                  id="prevSlide"
+                  size={40}
+                  onClick={() => {
+                    setAnimate(false)
+                    setFade(false)
+                    setLoading(true)
+                    decrement(imgIndex)
+                  }} />
+              }
+              {imgIndex !== nodes.length - 1 && <FaChevronCircleRight as="button"
                 aria-role="button"
-                aria-label="decrement gallery slide"
+                aria-label="increment gallery slide"
                 className="text-white"
-                id="prevSlide"
+                id="nextSlide"
                 size={40}
                 onClick={() => {
                   setAnimate(false)
                   setFade(false)
                   setLoading(true)
-                  decrement(imgIndex)
+                  increment(imgIndex)
                 }} />
-            }
-            {imgIndex !== nodes.length - 1 && <FaChevronCircleRight as="button"
-              aria-role="button"
-              aria-label="increment gallery slide"
-              className="text-white"
-              id="nextSlide"
-              size={40}
-              onClick={() => {
-                setAnimate(false)
-                setFade(false)
-                setLoading(true)
-                increment(imgIndex)
-              }} />
-            }
-          </div>
-        </section>
-      }
-      <Row className="image-gallery">
-        {nodes.map((node, index) => {
-          const image = getImage(node)
-          const spans = Math.ceil(image.height / 10);
-          return (
-            <GatsbyImage
-              image={node.childImageSharp.gatsbyImageData}
-              aria-label="image"
-              role="button"
-              alt={`gallery-image-${node.id}`}
-              data-fullsize-target={node.id}
-              key={node.id}
-              data-index={index}
-              className="mx-auto mb-3 rounded"
-              onClick={() => {
-                setOpen(true)
-                setImgIndex(index)
-                setAnimate(true)
-              }}
-              style={{
-                maxWidth: `300px`,
-                gridRowEnd: `span ${spans + 2}`
-              }}
-            />
-          )
+              }
+            </div>
+          </section>
+        }
+        <Row className="image-gallery">
+          {nodes.map((node, index) => {
+            const image = getImage(node)
+            const spans = Math.ceil(image.height / 10);
+            return (
+              <GatsbyImage
+                image={node.childImageSharp.gatsbyImageData}
+                aria-label="image"
+                role="button"
+                alt={`gallery-image-${node.id}`}
+                data-fullsize-target={node.id}
+                key={node.id}
+                data-index={index}
+                className="mx-auto mb-3 rounded"
+                onClick={() => {
+                  setOpen(true)
+                  setImgIndex(index)
+                  setAnimate(true)
+                }}
+                style={{
+                  maxWidth: `300px`,
+                  gridRowEnd: `span ${spans + 2}`
+                }}
+              />
+            )
 
-        })}
-      </Row>
-    </Container >
+          })}
+        </Row>
+      </Container >
+    </>
   )
 }
 

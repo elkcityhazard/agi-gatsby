@@ -9,12 +9,15 @@ import { Container, Row, Col } from 'react-bootstrap'
 import setupTags from '../utils/setupTags'
 import TagsList from '../components/TagsList'
 
+import SEO from '../components/SEO'
+
 function Tags({ data }) {
     console.log(data.allContentfulBlogPost.nodes)
     const newTags = setupTags(data.allContentfulBlogPost.nodes)
     console.log(newTags)
     return (
         <>
+            <SEO title="Tags List" description="Absolutely Gorgeous Interiors is a luxury interior construction contractor, specializing in custom-built homes, accessibility and remodeling projects. We are located in Traverse City, Michigan." />
             <Row className="text-center">
                 <Col><h1>Tags</h1></Col>
             </Row>

@@ -4,27 +4,32 @@ import { graphql, Link } from 'gatsby'
 
 import { Container, Row, Col } from 'react-bootstrap'
 
+import SEO from '../components/SEO'
+
 export default function PrivacyPolicy({ data }) {
 
-    const { allContentfulPrivacyPolicy: { nodes } } = data
+  const { allContentfulPrivacyPolicy: { nodes } } = data
 
-    return (
-        <Container className="text-center">
-            <Row>
-                <Col><h1>Absolutely Gorgeous Interiors, LLC - Privacy Policy</h1></Col>
-            </Row>
-            <Row>
-                {nodes.map((node, index) => {
-                    return (
-                        <Col key={index} className="mx-auto text-start" dangerouslySetInnerHTML={{ __html: node.content.childMarkdownRemark.html }}>
+  return (
+    <>
+      <SEO title="Privacy Policy" description="privacy policy - Absolutely Gorgeous Interiors, LLC" />
+      <Container className="text-center">
+        <Row>
+          <Col><h1>Absolutely Gorgeous Interiors, LLC - Privacy Policy</h1></Col>
+        </Row>
+        <Row>
+          {nodes.map((node, index) => {
+            return (
+              <Col key={index} className="mx-auto text-start" dangerouslySetInnerHTML={{ __html: node.content.childMarkdownRemark.html }}>
 
-                        </Col>
-                    )
-                })}
+              </Col>
+            )
+          })}
 
-            </Row>
-        </Container >
-    )
+        </Row>
+      </Container >
+    </>
+  )
 }
 
 

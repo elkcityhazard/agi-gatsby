@@ -17,7 +17,6 @@ import '../assets/css/bootstrap.min.css';
 
 
 
-
 // markup
 const IndexPage = () => {
 

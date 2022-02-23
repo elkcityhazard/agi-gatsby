@@ -9,6 +9,8 @@ import slugify from 'slugify'
 import ServiceCard from '../components/ServiceCard'
 import TagsList from '../components/TagsList';
 
+import SEO from '../components/SEO'
+
 //
 // text, icon, aos, image, description, url
 //
@@ -17,6 +19,7 @@ function TagTemplate({ data: { allContentfulBlogPost: { nodes } }, pageContext }
   console.log(nodes, pageContext)
   return (
     <>
+      <SEO title="Tag List" description="Absolutely Gorgeous Interiors is a luxury interior contractor and builder based in Traverse City, Michigan." />
       <Container as="main" margin="mx-auto" style={{ maxWidth: `100ch` }}>
         <Row className="p-3">
           <Col className="text-center mx-auto p-3"><h1>{pageContext.tag}</h1></Col>
