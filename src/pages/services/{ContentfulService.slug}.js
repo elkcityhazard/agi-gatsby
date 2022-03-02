@@ -13,7 +13,7 @@ import SEO from '../../components/SEO'
 import './ContentfulService.scss';
 
 
-export default function ServiceTemplate({ data }) {
+export default function ServiceTemplate({ data, location }) {
   const {
     title,
     description: { description },
@@ -28,7 +28,7 @@ export default function ServiceTemplate({ data }) {
 
   return (
     <>
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} location={location} />
       <Container as="main" className="mx-auto">
         <Row className="p-3">
           <Col xl={8} className="mx-auto p-3 text-center text-xl-start">
