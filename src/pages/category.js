@@ -15,11 +15,11 @@ import SEO from '../components/SEO'
 const title = "Category Taxonomies"
 const description = '';
 
-function Category({ data }) {
+function Category({ data, location }) {
     const newCats = setupCategories(data.allContentfulBlogPost.nodes)
     return (
         <>
-            <SEO title={title} description={description}>
+            <SEO title={title} description={description} location={location}>
 
             </SEO>
             <Container className="mx-auto">

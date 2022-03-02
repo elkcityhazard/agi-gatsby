@@ -21,7 +21,7 @@ import './gallery.scss'
 
 import SEO from '../components/SEO'
 
-export default function Gallery() {
+export default function Gallery({ location }) {
 
   const data = useStaticQuery(query)
 
@@ -79,7 +79,7 @@ export default function Gallery() {
 
   return (
     <>
-      <SEO title="Example Of Ours Works" description="Absolutely Gorgeous Interiors is an interior and exterior construction group based in Traverse City, Michigan" />
+      <SEO title="Example Of Ours Works" description="Absolutely Gorgeous Interiors is an interior and exterior construction group based in Traverse City, Michigan" location={location} />
       <Container as="main" className="mx-auto p-3">
         <Row className="mb-3">
           <Col className="mx-auto p-3 text-center">

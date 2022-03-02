@@ -6,13 +6,13 @@ import { Container, Row, Col } from 'react-bootstrap'
 import SEO from '../components/SEO'
 
 export default function Template({
-  data
+  data, location
 }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
   return (
     <>
-      <SEO title={frontmatter.title} description={frontmatter.description}></SEO>
+      <SEO title={frontmatter.title} description={frontmatter.description} location={location}></SEO>
       <Container as="main">
         <Row>
           <Col lg={9} className="mx-auto p-3 text-center">

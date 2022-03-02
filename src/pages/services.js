@@ -12,12 +12,12 @@ import SEO from '../components/SEO'
 
 
 
-export default function Services({ data }) {
+export default function Services({ data, location }) {
   const { nodes } = data.allContentfulService
   console.log(nodes)
   return (
     <>
-      <SEO title="Our Construction Services" description="Absolutely Gorgeous Interiors is a full service construction group specializing in residential and commercial design and remodeling." />
+      <SEO title="Our Construction Services" description="Absolutely Gorgeous Interiors is a full service construction group specializing in residential and commercial design and remodeling." location={location} />
       <Container md={9} className="mx-auto p-3">
         {nodes.map((node, index) => {
           return (

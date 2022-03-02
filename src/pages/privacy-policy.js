@@ -6,13 +6,13 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import SEO from '../components/SEO'
 
-export default function PrivacyPolicy({ data }) {
+export default function PrivacyPolicy({ data, location }) {
 
   const { allContentfulPrivacyPolicy: { nodes } } = data
 
   return (
     <>
-      <SEO title="Privacy Policy" description="privacy policy - Absolutely Gorgeous Interiors, LLC" />
+      <SEO title="Privacy Policy" description="privacy policy - Absolutely Gorgeous Interiors, LLC" location={location} />
       <Container className="text-center">
         <Row>
           <Col><h1>Absolutely Gorgeous Interiors, LLC - Privacy Policy</h1></Col>

@@ -18,7 +18,7 @@ import '../assets/css/bootstrap.min.css';
 
 
 // markup
-const IndexPage = () => {
+const IndexPage = ({ location }) => {
 
   const title = "Absolutely Gorgeous Interiors"
   const subTitle = "Build For Beauty & Accessibility"
@@ -28,7 +28,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <SEO title={titleTag} description={description}></SEO>
+      <SEO title={titleTag} description={description} location={location}></SEO>
       <Header title={title} subTitle={subTitle} />
       <LocaleCard />
       <ServiceSection />

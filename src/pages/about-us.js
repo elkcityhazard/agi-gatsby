@@ -21,7 +21,7 @@ import "aos/dist/aos.css";
 
 import SEO from '../components/SEO'
 
-function AboutUs() {
+function AboutUs({ location }) {
 
   const title = `Our Story - Absolutely Gorgeous Interiors`
   const subtitle = `Building For Beauty & Accessibility`
@@ -111,7 +111,7 @@ function AboutUs() {
 
   return (
     <>
-      <SEO title={contentfulAboutUsPage.title} description={contentfulAboutUsPage.description.description} />
+      <SEO title={contentfulAboutUsPage.title} description={contentfulAboutUsPage.description.description} location={location} />
       <BackgroundImage
         Tag="section"
         style={{

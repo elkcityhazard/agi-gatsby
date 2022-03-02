@@ -11,13 +11,13 @@ import TagsList from '../components/TagsList'
 
 import SEO from '../components/SEO'
 
-function Tags({ data }) {
+function Tags({ data, location }) {
     console.log(data.allContentfulBlogPost.nodes)
     const newTags = setupTags(data.allContentfulBlogPost.nodes)
     console.log(newTags)
     return (
         <>
-            <SEO title="Tags List" description="Absolutely Gorgeous Interiors is a luxury interior construction contractor, specializing in custom-built homes, accessibility and remodeling projects. We are located in Traverse City, Michigan." />
+            <SEO title="Tags List" description="Absolutely Gorgeous Interiors is a luxury interior construction contractor, specializing in custom-built homes, accessibility and remodeling projects. We are located in Traverse City, Michigan." location={location} />
             <Row className="text-center">
                 <Col><h1>Tags</h1></Col>
             </Row>

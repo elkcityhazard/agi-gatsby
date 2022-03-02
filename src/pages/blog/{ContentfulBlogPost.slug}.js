@@ -20,7 +20,7 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 
 import './ContentfulBlogPost.scss'
 
-export default function ({ data }) {
+export default function ({ data, location }) {
   const { contentfulBlogPost: {
     id,
     author,
@@ -41,7 +41,7 @@ export default function ({ data }) {
 
   return (
     <>
-      <SEO title={title} description={description}></SEO>
+      <SEO title={title} description={description} location={location}></SEO>
       <header className="p-3" style={{ minHeight: `50vh` }}>
         <Container>
           <Row>

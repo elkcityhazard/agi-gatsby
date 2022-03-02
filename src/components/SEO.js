@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PropTypes from 'prop-types'
+
 import { Helmet } from 'react-helmet';
 
 import { useStaticQuery, graphql } from 'gatsby';
@@ -16,25 +18,117 @@ query siteMetaData {
   }
 `
 
-export default function SEO({ title, description }) {
+export default function SEO({ title, description, location }) {
 
-    const { site } = useStaticQuery(query)
 
-    const metaTitle = title || site.siteMetadata.title
+  const { site } = useStaticQuery(query)
 
-    const metaDescription = description || site.siteMetadata.description
+  const metaTitle = title || site.siteMetadata.title
 
-    return (
-        <Helmet
-            htmlAttributes={{ lang: "en" }}
-            title={`${metaTitle} | ${site.siteMetadata.title}`}
-            meta={[
-                {
-                    name: `description`,
-                    content: metaDescription
-                }
-            ]}>
+  const metaDescription = description || site.siteMetadata.description
 
-        </Helmet>
-    )
+  const { siteUrl } = site.siteMetadata || `https://www.agitraversebay.com`
+
+  console.log(site)
+
+  return (
+    <Helmet
+      htmlAttributes={{
+        lang: "en",
+        itemScope: true,
+        itemType: "https://schema.org/Article"
+      }}
+      title={`${metaTitle} | ${site.siteMetadata.title}`}
+      meta={[
+        {
+          name: `description`,
+          content: metaDescription,
+        },
+        {
+          property: `og:type`,
+          content: `website`
+        },
+        {
+          property: `og:title`,
+          content: metaTitle
+        },
+        {
+          property: 'og:url',
+          content: `${siteUrl + location.pathname}`,
+        },
+        {
+          property: 'og:image',
+          content: `/images/logos/social/facebook/share.png`
+        },
+        {
+          property: `og:image:alt`,
+          content: description
+        },
+        {
+          property: `og:description`,
+          content: description
+        },
+        {
+          property: `og:site_name`,
+          content: `Absolutely Gorgeous Interiors, LLC`
+        },
+        {
+          property: `og:locale`,
+          content: `en_US`
+        },
+        {
+          property: `article:author`,
+          content: `Absolutely Gorgeous Interiors`
+        },
+        {
+          property: `twitter:card`,
+          content: `${description}`
+        },
+        {
+          property: `twitter:site`,
+          content: `@agitraversebay`
+        },
+        {
+          property: `twitter:creator`,
+          content: `@agitraversebay`
+        },
+        {
+          property: `twitter:url`,
+          content: `${siteUrl + location.pathname}`
+        },
+        {
+          property: `twitter:title`,
+          content: `${metaTitle}`
+        },
+        {
+          property: `twitter:description`,
+          content: `${description}`
+        },
+        {
+          property: `twitter:image`,
+          content: `/images/logos/social/twitter/share.png`
+        },
+        {
+          property: `twitter:image:alt`,
+          content: `${description}`
+        },
+        {
+          itemProp: `name`,
+          content: `${metaTitle}`
+        },
+        {
+          itemProp: `description`,
+          content: `${description}`
+        },
+        {
+          itemProp: `image`,
+          content: `/images/logos/social/twitter/profile.png`
+        }
+
+      ]}>
+
+
+
+    </Helmet>
+  )
 }

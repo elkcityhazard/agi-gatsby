@@ -37,7 +37,7 @@ export default function BlogListTemplate(props) {
 
     return (
         <>
-            <SEO title={title} description={description}></SEO>
+            <SEO title={title} description={description} location={props.location}></SEO>
             <Container className="header-gradient">
                 <Row as="header">
                     <Col sm={12} lg={9} className="mx-auto p-3 text-center">

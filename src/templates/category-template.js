@@ -12,11 +12,11 @@ import SEO from '../components/SEO'
 const title = "Category Taxonomies"
 const description = '';
 
-function CategoryTemplate({ data: { allContentfulBlogPost: { nodes } }, pageContext }) {
+function CategoryTemplate({ location, data: { allContentfulBlogPost: { nodes } }, pageContext }) {
   console.log(nodes, pageContext)
   return (
     <>
-      <SEO title={pageContext.category} description={pageContext.description}>
+      <SEO title={pageContext.category} description={pageContext.description} location={location}>
 
       </SEO>
       <Container as="main" >
