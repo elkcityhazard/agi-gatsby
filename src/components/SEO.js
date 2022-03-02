@@ -13,6 +13,8 @@ query siteMetaData {
         description
         siteUrl
         title
+        twitterImg
+        facebookImg
       }
     }
   }
@@ -58,7 +60,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: 'og:image',
-          content: `/images/logos/social/facebook/share.png`
+          content: `${site.siteMetadata.facebookImg}`
         },
         {
           property: `og:image:alt`,
@@ -106,7 +108,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: `twitter:image`,
-          content: `/images/logos/social/twitter/share.png`
+          content: `${site.siteMetadata.twitterImg}`
         },
         {
           property: `twitter:image:alt`,
