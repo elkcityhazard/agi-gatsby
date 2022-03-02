@@ -82,7 +82,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: `twitter:card`,
-          content: `${description}`
+          content: `summary`
         },
         {
           property: `twitter:site`,
