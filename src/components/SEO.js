@@ -15,24 +15,12 @@ query siteMetaData {
         description
         siteUrl
         title
-        twitterImg
-        facebookImg
       }
     }
   }
 `
 
 export default function SEO({ title, description, location, twitterImg, facebookImg }) {
-
-  if (!twitterImg) {
-    twitterImg = site.siteMetadata.twitterImg
-
-  }
-
-  if (!facebookImg) {
-    facebookImg = site.siteMetadata.facebookImg
-  }
-
 
   const { site, file } = useStaticQuery(query)
 
@@ -71,7 +59,7 @@ export default function SEO({ title, description, location, twitterImg, facebook
         },
         {
           property: 'og:image',
-          content: `${site.siteMetadata.facebookImg}`
+          content: ``
         },
         {
           property: `og:image:alt`,
@@ -119,7 +107,7 @@ export default function SEO({ title, description, location, twitterImg, facebook
         },
         {
           property: `twitter:image`,
-          content: `${site.siteMetadata.twitterImg}`
+          content: ``
         },
         {
           property: `twitter:image:alt`,
