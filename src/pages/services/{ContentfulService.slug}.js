@@ -25,6 +25,8 @@ export default function ServiceTemplate({ data, location }) {
     serviceOptions
   } = data.contentfulService
 
+  console.log(date)
+
 
   return (
     <>
