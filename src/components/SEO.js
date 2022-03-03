@@ -65,7 +65,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: 'og:image',
-          content: <StaticImage src="/images/logos/social/facebook/share.png" alt="facebook share" />
+          content: `${file.childImageSharp.gatsbyImageData.images.fallback.src}`
         },
         {
           property: `og:image:alt`,
@@ -113,7 +113,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: `twitter:image`,
-          content: <StaticImage src="/images/logos/social/twitter/share.png" alt="twitter share" />
+          content: `${file.childImageSharp.gatsbyImageData.images.fallback.src}`
         },
         {
           property: `twitter:image:alt`,
