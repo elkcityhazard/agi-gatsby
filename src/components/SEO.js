@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet';
 
 import { useStaticQuery, graphql } from 'gatsby';
 
+import { StaticImage } from 'gatsby-plugin-image'
+
 const query = graphql`
 query siteMetaData {
     site(siteMetadata: {}) {
@@ -63,7 +65,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: 'og:image',
-          content: `${file.childImageSharp.gatsbyImageData}`
+          content: <StaticImage src="/images/logos/social/facebook/share.png" alt="facebook share" />
         },
         {
           property: `og:image:alt`,
@@ -111,7 +113,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: `twitter:image`,
-          content: `${file.childImageSharp.gatsbyImageData}`
+          content: <StaticImage src="/images/logos/social/twitter/share.png" alt="twitter share" />
         },
         {
           property: `twitter:image:alt`,
