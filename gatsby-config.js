@@ -12,6 +12,8 @@ module.exports = {
     siteUrl: "https://www.agitraversebay.com",
     description: "We are a luxury interior construction company In Traverse City Michigan.  We specialize in concrete, tile, flooring, and accessible building.",
     title: "Absolutely Gorgeous Interiors",
+    twitterImg: `./src/images/logos/social/twitter/share.png`,
+    facebookImg: `./src/images/logos/social/facebook/share.png`
   },
   plugins: [
     "gatsby-plugin-sass",

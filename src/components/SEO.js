@@ -15,17 +15,23 @@ query siteMetaData {
         description
         siteUrl
         title
-      }
-    }
-    file(relativePath: {eq: "logos/social/twitter/share.png"}) {
-      childImageSharp {
-        gatsbyImageData
+        twitterImg
+        facebookImg
       }
     }
   }
 `
 
 export default function SEO({ title, description, location }) {
+
+  if (!twitterImg) {
+    twitterImg = site.siteMetadata.twitterImg
+
+  }
+
+  if (!facebookImg) {
+    facebookImg = site.siteMetadata.facebookImg
+  }
 
 
   const { site, file } = useStaticQuery(query)
@@ -65,7 +71,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: 'og:image',
-          content: `${file.childImageSharp.gatsbyImageData.images.fallback.src}`
+          content: `${site.siteMetadata.facebookImg}`
         },
         {
           property: `og:image:alt`,
@@ -113,7 +119,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: `twitter:image`,
-          content: `${file.childImageSharp.gatsbyImageData.images.fallback.src}`
+          content: `${site.siteMetadata.twitterImg}`
         },
         {
           property: `twitter:image:alt`,
