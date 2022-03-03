@@ -13,8 +13,11 @@ query siteMetaData {
         description
         siteUrl
         title
-        twitterImg
-        facebookImg
+      }
+    }
+    file(relativePath: {eq: "logos/social/twitter/share.png"}) {
+      childImageSharp {
+        gatsbyImageData
       }
     }
   }
@@ -23,7 +26,7 @@ query siteMetaData {
 export default function SEO({ title, description, location }) {
 
 
-  const { site } = useStaticQuery(query)
+  const { site, file } = useStaticQuery(query)
 
   const metaTitle = title || site.siteMetadata.title
 
@@ -31,7 +34,7 @@ export default function SEO({ title, description, location }) {
 
   const { siteUrl } = site.siteMetadata || `https://www.agitraversebay.com`
 
-  console.log(site)
+  console.log(site, file)
 
   return (
     <Helmet
@@ -60,7 +63,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: 'og:image',
-          content: `${site.siteMetadata.facebookImg}`
+          content: `${file.childImageSharp.gatsbyImageData}`
         },
         {
           property: `og:image:alt`,
@@ -108,7 +111,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: `twitter:image`,
-          content: `${site.siteMetadata.twitterImg}`
+          content: `${file.childImageSharp.gatsbyImageData}`
         },
         {
           property: `twitter:image:alt`,
