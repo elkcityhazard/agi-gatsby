@@ -9,7 +9,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.agitraversebay.com",
+    siteUrl: "https://agi-gatsby.vercel.app/",
     description: "We are a luxury interior construction company In Traverse City Michigan.  We specialize in concrete, tile, flooring, and accessible building.",
     title: "Absolutely Gorgeous Interiors",
     twitterImg: `./src/images/logos/social/twitter/share.png`,

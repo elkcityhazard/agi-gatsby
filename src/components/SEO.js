@@ -67,7 +67,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: 'og:image',
-          content: `${file.childImageSharp.fixed.src}`
+          content: `${siteUrl + file.childImageSharp.fixed.src}`
         },
         {
           property: `og:image:alt`,
@@ -115,7 +115,7 @@ export default function SEO({ title, description, location }) {
         },
         {
           property: `twitter:image`,
-          content: `${file.childImageSharp.fixed.src}`
+          content: `${siteUrl + file.childImageSharp.fixed.src}`
         },
         {
           property: `twitter: image: alt`,
