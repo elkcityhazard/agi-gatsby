@@ -17,10 +17,18 @@ query siteMetaData {
         title
       }
     }
+    file(relativePath: {eq: "logos/social/twitter/share.png"}) {
+      id
+      childImageSharp {
+        fixed {
+          src
+        }
+      }
+    }
   }
 `
 
-export default function SEO({ title, description, location, twitterImg, facebookImg }) {
+export default function SEO({ title, description, location }) {
 
   const { site, file } = useStaticQuery(query)
 
@@ -59,7 +67,7 @@ export default function SEO({ title, description, location, twitterImg, facebook
         },
         {
           property: 'og:image',
-          content: ``
+          content: `${file.childImageSharp.fixed.src}`
         },
         {
           property: `og:image:alt`,
@@ -107,23 +115,23 @@ export default function SEO({ title, description, location, twitterImg, facebook
         },
         {
           property: `twitter:image`,
-          content: ``
+          content: `${file.childImageSharp.fixed.src}`
         },
         {
-          property: `twitter:image:alt`,
-          content: `${description}`
+          property: `twitter: image: alt`,
+          content: `${description} `
         },
         {
           itemProp: `name`,
-          content: `${metaTitle}`
+          content: `${metaTitle} `
         },
         {
           itemProp: `description`,
-          content: `${description}`
+          content: `${description} `
         },
         {
           itemProp: `image`,
-          content: `/images/logos/social/twitter/profile.png`
+          content: `/ images / logos / social / twitter / profile.png`
         }
 
       ]}>
