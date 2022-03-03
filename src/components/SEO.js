@@ -22,7 +22,7 @@ query siteMetaData {
   }
 `
 
-export default function SEO({ title, description, location }) {
+export default function SEO({ title, description, location, twitterImg, facebookImg }) {
 
   if (!twitterImg) {
     twitterImg = site.siteMetadata.twitterImg
