@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import slugify from 'slugify';
 
@@ -16,6 +16,10 @@ import SEO from '../components/SEO'
 import '../pages/blog.scss'
 
 export default function BlogListTemplate(props) {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [props.data])
 
     const { currentPage, numPages } = props.pageContext
 

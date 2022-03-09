@@ -21,10 +21,14 @@ import "aos/dist/aos.css";
 
 import SEO from '../components/SEO'
 
-function AboutUs({ location }) {
+function AboutUs({ location, data }) {
 
   const title = `Our Story - Absolutely Gorgeous Interiors`
   const subtitle = `Building For Beauty & Accessibility`
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [data])
 
   const { placeholderImage, contentfulAboutUsPage } = useStaticQuery(
     graphql`

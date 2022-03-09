@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { graphql, Link, useStaticQuery } from 'gatsby'
 
@@ -14,7 +14,11 @@ import SEO from '../components/SEO'
 
 export default function Services({ data, location }) {
   const { nodes } = data.allContentfulService
-  console.log(nodes)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
+
   return (
     <>
       <SEO title="Our Construction Services" description="Absolutely Gorgeous Interiors is a full service construction group specializing in residential and commercial design and remodeling." location={location} />
