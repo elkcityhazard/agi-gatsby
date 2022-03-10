@@ -63,7 +63,7 @@ export default function BookNow() {
               <p className="lead fw-bolder fs-3">Our "why" is to see the joy on their face when their space is beautiful, accessible, and inspiring.  We would love to hear yours.</p>
             </Col>
             <Col xl={9} className="mx-auto text-center d-flex align-items-center justify-content-center">
-              <a href="https://tidycal.com/absolutely-gorgeous-interiors" target="_parent" rel="noreferrer" className="btn btn-large shadow-lg rounded-pill btn-warning">Schedule Now< /a>
+              <a href="https://tidycal.com/absolutely-gorgeous-interiors" target="_parent" rel="noreferrer" className="btn btn-large shadow-lg rounded-pill btn-warning text-dark fw-bolder">Schedule Now< /a>
             </Col>
           </Row>
         </Container>

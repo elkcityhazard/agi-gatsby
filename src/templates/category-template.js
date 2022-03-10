@@ -9,8 +9,6 @@ import slugify from 'slugify'
 import ServiceCard from '../components/ServiceCard'
 import SEO from '../components/SEO'
 
-const title = "Category Taxonomies"
-const description = '';
 
 function CategoryTemplate({ location, data: { allContentfulBlogPost: { nodes } }, pageContext }) {
   console.log(nodes, pageContext)
@@ -25,7 +23,7 @@ function CategoryTemplate({ location, data: { allContentfulBlogPost: { nodes } }
         </Row>
         <Row as="section">
           {nodes.map((category, index) => {
-            const { title, slug, image, description } = category
+            const { title, slug } = category
             const newSlug = slugify(slug, {
               trim: true,
               replacement: '-',

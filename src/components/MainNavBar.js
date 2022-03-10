@@ -40,8 +40,8 @@ export default function MainNavBar() {
               })}
             </Nav>
             <Nav>
-              <Nav.Link to="tel:+19897089620" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">(989) 708-9620</Nav.Link>
-              <Nav.Link to="https://goo.gl/maps/WgyndTR66cCDbNLA7" target="_blank" rel="noreferrer nofollow" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2">Directions</Nav.Link>
+              <Nav.Link to="tel:+19897089620" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2 text-dark">(989) 708-9620</Nav.Link>
+              <Nav.Link to="https://goo.gl/maps/WgyndTR66cCDbNLA7" target="_blank" rel="noreferrer nofollow" className="btn btn-large btn-warning rounded-pill d-block fw-bolder m-2  text-dark">Directions</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

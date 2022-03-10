@@ -21,10 +21,9 @@ import './gallery.scss'
 
 import SEO from '../components/SEO'
 
-export default function Gallery({location }) {
+export default function Gallery({ location }) {
 
-  const galleryScrollRest = useScrollRestoration(`gallery-section`)
-
+  const galleryScrollRest = useScrollRestoration(`gallery-main`)
 
   const data = useStaticQuery(query)
 
@@ -42,17 +41,18 @@ export default function Gallery({location }) {
 
   const { childImageSharp: { gatsbyImageData } } = nodes[imgIndex]
 
-
+  console.log(location)
 
   useEffect(() => {
     AOS.init();
     AOS.refresh();
     setHasMounted(true)
-  }, [])
+    if (!hasMounted) {
+      return null;
+    }
+    return () => window.scrollTo(0, 0)
 
-  if (!hasMounted) {
-    return null;
-  }
+  }, [data])
 
   const increment = (imgIndex) => {
     if (imgIndex >= nodes.length - 1) {
@@ -83,7 +83,7 @@ export default function Gallery({location }) {
   return (
     <>
       <SEO title="Example Of Ours Works" description="Absolutely Gorgeous Interiors is an interior and exterior construction group based in Traverse City, Michigan" location={location} />
-      <Container as="main" className="mx-auto p-3">
+      <Container as="main" className="mx-auto p-3" {...galleryScrollRest}>
         <Row className="mb-3">
           <Col className="mx-auto p-3 text-center">
             <h1>Gallery: Some Of Our Recent Work</h1>
@@ -91,17 +91,16 @@ export default function Gallery({location }) {
         </Row>
         {open &&
           <section
-            {...galleryScrollRest}
             data-aos="fade"
             data-aos-delay="0"
             data-aos-duration="1250"
             className="gallery-wrapper mx-auto text-center"
-            >
+          >
             <div className="inner-wrapper">
               <Container className="mx-auto p-3">
                 <FaTimes size={40} className="ms-auto me-2 text-white shadow-md spin" onClick={() => setOpen(false)} />
                 <Row className="text-center">
-                  <Col sm={12} className="d-flex align-items-center justify-content-center mx-auto text-center">
+                  <Col sm={12} className="d-flex align-items-center justify-content-center mx-auto text-center" >
                     {
                       loading && <Spinner animation="border" variant="warning" className="mx-auto" />
                     }
@@ -151,7 +150,7 @@ export default function Gallery({location }) {
             </div>
           </section>
         }
-        <Row className="image-gallery">
+        <Row className="image-gallery" style={{ overflow: `auto` }}>
           {nodes.map((node, index) => {
             const image = getImage(node)
             const spans = Math.ceil(image.height / 10);

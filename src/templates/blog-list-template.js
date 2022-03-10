@@ -31,8 +31,6 @@ export default function BlogListTemplate(props) {
     const prevPage = currentPage - 1 === 1 ? "" : (currentPage - 1).toString();
     const nextPage = (currentPage + 1).toString();
 
-    console.log(props)
-
     const { allContentfulBlogPost: { nodes } } = props.data;
 
     const title = "Home Improvement Growth Tips"

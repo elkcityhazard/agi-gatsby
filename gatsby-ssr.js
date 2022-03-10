@@ -3,19 +3,3 @@ const React = require("react")
 
 
 
-const headComponents = [
-    <script defer key="booking" src="https://asset-tidycal.b-cdn.net//js/embed.js"></script>
-]
-
-const bodyComponents = [
-
-]
-
-
-
-export const onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
-    setHeadComponents(headComponents)
-    setPostBodyComponents(bodyComponents)
-}
-
-

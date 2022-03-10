@@ -38,8 +38,6 @@ export default function SEO({ title, description, location }) {
 
   const { siteUrl } = site.siteMetadata || `https://www.agitraversebay.com`
 
-  console.log(site, file)
-
   return (
     <Helmet
       htmlAttributes={{

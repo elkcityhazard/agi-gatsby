@@ -14,7 +14,6 @@ import "aos/dist/aos.css";
 
 import './WhyChooseUs.scss'
 import CallNow from './CallNow';
-import CTA2 from './CTA2'
 
 export default function WhyChooseUs() {
 
@@ -101,7 +100,6 @@ export default function WhyChooseUs() {
                     <CallNow />
                 </Col>
             </Row>
-            {/* <CTA2 className="d-none" /> */}
             <Row className="mt-3 text-center">
                 <Col md={9} className="mx-auto">
                     <h3 className="h1 text-dark text-uppercase">Learn More About<span className="text-success"> Interior Construction Contractor </span>Services</h3>

@@ -9,38 +9,12 @@ exports.wrapPageElement = ({ element, props }) => {
 
 exports.shouldUpdateScroll = ({
     routerProps: { location },
-    getSavedScrollPosition,
+    getSavedScrollPosition
 }) => {
-    const { pathname } = location
-    
+    const currentPosition = getSavedScrollPosition(location)
+    const queriedPosition = getSavedScrollPosition({ pathname: `/random` })
 
-    // list of routes for the scroll-to-top-hook
-    const scrollToTopRoutes = [
-        `/privacy-policy`,
-        `/services/traverse-city-home-builder`,
-        `/services/`,
-        `/contact-us`,
-        `/about-us`,
-        `/gallery`,
-        `/blog`,
-        `/terms-of-service`,
-        `/cookie-policy`,
-        `/general-disclaimer`,
-        `/refund-policy`,
-        `/shipping-policy`
+    window.scrollTo(...(currentPosition || [0, 0]))
 
-    ]
-    // if the new route is part of the list above, scroll to top (0, 0)
-    if (scrollToTopRoutes.indexOf(pathname) !== -1) {
-        
-        window.scrollTo(0, 0)
-       
-    }
-
-    window.scrollTo(0, 0)
-  const body = document.getElementsByTagName('body')[0]
-  body.scrollTop = 0
-  return false
-
-    return false
+    return [0, 0]
 }

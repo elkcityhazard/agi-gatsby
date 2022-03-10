@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, useScrollRestoration } from "gatsby"
 
 import { Container, Row, Col } from 'react-bootstrap'
 
@@ -10,10 +10,11 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
+  const markdownScrollRest = useScrollRestoration(`template-main-container`)
   return (
     <>
       <SEO title={frontmatter.title} description={frontmatter.description} location={location}></SEO>
-      <Container as="main">
+      <Container as="main" {...markdownScrollRest}>
         <Row>
           <Col lg={9} className="mx-auto p-3 text-center">
             <h1>{frontmatter.title}</h1>
