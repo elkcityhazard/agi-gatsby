@@ -21,9 +21,10 @@ import './gallery.scss'
 
 import SEO from '../components/SEO'
 
-export default function Gallery({ location }) {
+export default function Gallery({location }) {
 
-  const galleryScrollRest = useScrollRestoration(`gallery-main`)
+  const galleryScrollRest = useScrollRestoration(`gallery-section`)
+
 
   const data = useStaticQuery(query)
 
@@ -90,10 +91,12 @@ export default function Gallery({ location }) {
         </Row>
         {open &&
           <section
+            {...galleryScrollRest}
             data-aos="fade"
             data-aos-delay="0"
             data-aos-duration="1250"
-            className="gallery-wrapper mx-auto text-center">
+            className="gallery-wrapper mx-auto text-center"
+            >
             <div className="inner-wrapper">
               <Container className="mx-auto p-3">
                 <FaTimes size={40} className="ms-auto me-2 text-white shadow-md spin" onClick={() => setOpen(false)} />

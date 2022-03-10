@@ -121,14 +121,16 @@ export default function Footer() {
           <h4>Explore</h4>
           <nav>
             {links.map((link) => (
+              <span as="link" key={link.id} className="d-block animate-chevron">
               <Link
-                key={link.id}
                 to={link.url}
                 title={link.text}
-                className="text-warning text-decoration-none d-block"
+                className="text-warning text-decoration-none"
               >
+                <FaChevronRight className="text-white" />
                 {link.text}
               </Link>
+              </span>
             ))}
 
           </nav>
