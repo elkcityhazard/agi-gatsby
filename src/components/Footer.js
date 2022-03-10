@@ -108,8 +108,7 @@ export default function Footer() {
           {!success &&
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
-                <Form.Label>Email Address:</Form.Label>
-                <Form.Control value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="growyourbusiness@agitraversebay.com" className="text-dark bg-light p-2" />
+                <Form.Label>Email Address: <Form.Control value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="growyourbusiness@agitraversebay.com" className="text-dark bg-light p-2" /></Form.Label>
               </Form.Group>
               <Button type="submit">Submit</Button>
             </Form>
@@ -122,14 +121,14 @@ export default function Footer() {
           <nav>
             {links.map((link) => (
               <span as="link" key={link.id} className="d-block animate-chevron">
-              <Link
-                to={link.url}
-                title={link.text}
-                className="text-warning text-decoration-none"
-              >
-                <FaChevronRight className="text-white" />
-                {link.text}
-              </Link>
+                <Link
+                  to={link.url}
+                  title={link.text}
+                  className="text-warning text-decoration-none"
+                >
+                  <FaChevronRight className="text-white" />
+                  {link.text}
+                </Link>
               </span>
             ))}
 

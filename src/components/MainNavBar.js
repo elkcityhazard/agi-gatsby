@@ -27,7 +27,7 @@ export default function MainNavBar() {
                       {link.children.map((child, index) => {
                         return (
                           <div key={index}>
-                            <NavDropdown.Item as={Link} to={child.url} variant="dark" bg="dark">{child.text}</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={child.url} variant="dark" bg="dark" title="child.text">{child.text}</NavDropdown.Item>
                             <NavDropdown.Divider />
                           </div>
                         )
