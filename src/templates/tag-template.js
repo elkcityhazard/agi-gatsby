@@ -16,7 +16,6 @@ import SEO from '../components/SEO'
 //
 
 function TagTemplate({ location, data: { allContentfulBlogPost: { nodes } }, pageContext }) {
-  console.log(nodes, pageContext)
   return (
     <>
       <SEO title="Tag List" description="Absolutely Gorgeous Interiors is a luxury interior contractor and builder based in Traverse City, Michigan." location={location} />
@@ -27,7 +26,7 @@ function TagTemplate({ location, data: { allContentfulBlogPost: { nodes } }, pag
         <Row as="section" className="justify-content-center">
           <Col xl={9} className="p-3">
             {nodes.map((tag, index) => {
-              const { title, slug, image, description } = tag
+              const { title, slug } = tag
               const newSlug = slugify(slug, {
                 trim: true,
                 replacement: '-',

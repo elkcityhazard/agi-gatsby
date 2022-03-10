@@ -6,10 +6,12 @@ const links = [
     description:
       "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
     color: "#333",
+    id: 1
   },
   {
     text: "Services",
     url: "/services",
+    id: 2,
     children: [
       {
         text: "Flooring Contractor",
@@ -48,22 +50,26 @@ const links = [
     text: "Get In Touch",
     url: "/contact-us",
     color: "#333",
+    id: 3
   },
   {
     text: "About Us",
     url: "/about-us",
     color: "#333",
+    id: 4
   },
   {
     text: "Gallery",
     url: "/gallery",
     color: "#333",
+    id: 5
   },
   {
     text: "Our Blog",
     url: "/blog",
     badge: true,
     color: "#333",
+    id: 6
   },
 ]
 

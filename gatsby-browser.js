@@ -13,6 +13,8 @@ exports.shouldUpdateScroll = ({
 }) => {
     const { pathname } = location
 
+    console.log(pathname, getSavedScrollPosition)
+
     // list of routes for the scroll-to-top-hook
     const scrollToTopRoutes = [
         `/privacy-policy`,

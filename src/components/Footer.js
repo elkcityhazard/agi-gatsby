@@ -24,7 +24,7 @@ export default function Footer() {
   const [success, setSuccess] = useState(false)
 
   useEffect(() => {
-
+    return () => setError(null)
   }, [])
 
   const handleSubmit = async (e) => {
@@ -65,8 +65,6 @@ export default function Footer() {
     const parsedData = await data.json();
     setSuccess(true);
     setLoading(false)
-    console.log(data)
-    console.log(parsedData)
     if (data.status === 200) {
       localStorage.setItem('newsletterEmail', JSON.stringify({ email: parsedData.data.email }))
     }
@@ -80,7 +78,7 @@ export default function Footer() {
           <h3 className="h1 border-bottom pb-3">
             Absolutely Gorgeous Interiors, LLC
           </h3>
-          <p class="copy">
+          <p className="copy">
             Your home should be both beautiful and accessible to all.  It should also be a reflection of you and also inspire your creativity.
             Absolutely Gorgeous Interiors, LLC specializes in creating beautiful, accessible designs that everyone can enjoy.  Since 1991, customers
             have been blown away by our designs, construction, and attention to details.  Let us help you create an accessible and beautiful space for your
@@ -123,15 +121,14 @@ export default function Footer() {
           <h4>Explore</h4>
           <nav>
             {links.map((link) => (
-              <span className="d-block animate-chevron">
-                <Link
-                  to={link.url}
-                  title={link.text}
-                  className="text-warning text-decoration-none"
-                >
-                  <FaChevronRight className="text-white" /> {link.text}
-                </Link>
-              </span>
+              <Link
+                key={link.id}
+                to={link.url}
+                title={link.text}
+                className="text-warning text-decoration-none d-block"
+              >
+                {link.text}
+              </Link>
             ))}
 
           </nav>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, useScrollRestoration } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 // Custom Bootstrap Import
@@ -30,13 +30,15 @@ export default function Header({ title, subTitle }) {
   `);
   const image = getImage(data.file.childImageSharp);
 
+  const headersScrollRest = useScrollRestoration(`header-header-main-header`)
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
   return (
     <HeroBackground>
-      <header className="main-header p-3" style={{ minHeight: `100vh` }}>
+      <header className="main-header p-3" style={{ minHeight: `100vh` }} {...headersScrollRest}>
         <Container>
           <Row className="align-items-center justify-content-center flex-column-reverse flex-lg-row">
             <Col lg={6}>

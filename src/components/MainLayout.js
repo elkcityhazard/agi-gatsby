@@ -16,7 +16,8 @@ export default function MainLayout({ children }) {
 
     useEffect(() => {
         setLoaded(true)
-    }, [])
+        window.scrollTo(0, 0)
+    }, [loaded])
 
     if (!loaded) {
         return null

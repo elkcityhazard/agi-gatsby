@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { graphql } from 'gatsby';
+import { graphql, useScrollRestoration } from 'gatsby';
 import { GatsbyImage, GetImage } from 'gatsby-plugin-image';
 
 import { Container, Row, Col, Button } from 'react-bootstrap'
@@ -25,11 +25,13 @@ export default function ServiceTemplate({ data, location }) {
     serviceOptions
   } = data.contentfulService
 
+  const serviceScrollRest = useScrollRestoration(`service-template-main`)
+
 
   return (
     <>
       <SEO title={title} description={description} location={location} />
-      <Container as="main" className="mx-auto">
+      <Container as="main" className="mx-auto" {...serviceScrollRest}>
         <Row className="p-3">
           <Col xl={8} className="mx-auto p-3 text-center text-xl-start">
             <h1 className="mb-3">{title}</h1>

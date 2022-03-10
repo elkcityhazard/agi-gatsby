@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, useScrollRestoration } from 'gatsby';
 
 import { Container, Row, Col, Spinner, Button } from 'react-bootstrap'
 
@@ -22,6 +22,8 @@ import './gallery.scss'
 import SEO from '../components/SEO'
 
 export default function Gallery({ location }) {
+
+  const galleryScrollRest = useScrollRestoration(`gallery-main`)
 
   const data = useStaticQuery(query)
 

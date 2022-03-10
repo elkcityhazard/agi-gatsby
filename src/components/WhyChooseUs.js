@@ -44,7 +44,7 @@ export default function WhyChooseUs() {
                 <Col md={9} className="mx-auto text-center">
                     <h3 className="h1 text-dark text-uppercase">Why Choose<span className="text-success"> Absolutely Gorgeous Interiors</span></h3>
                     <hr width="100px" className="mx-auto text-dark shadow" style={{ maxWidth: `100px` }} />
-                    <p class="text-start">
+                    <p className="text-start">
                         Absolutely Gorgeous Interiors, LLC is focused on client satisfaction, which means that our team is dedicated to providing high-quality service that will exceed your expectations.
                         We are one of the few <strong>interior construction contractors</strong> in Traverse City, Michigan, that truly cares about your needs and will go above and beyond to ensure complete customer satisfaction.
                         Here are some of the reasons why we are one of the best in the city:
@@ -66,6 +66,7 @@ export default function WhyChooseUs() {
                     <ul className="list-group-flush p-0 mx-auto">
                         {data.map((item, index) => {
                             return <li
+                                key={index}
                                 className="list-group-item"
                                 data-aos="fade-up"
                                 data-aos-delay={index * 25}
@@ -82,7 +83,7 @@ export default function WhyChooseUs() {
                     <hr width="100px" className="mx-auto text-dark shadow" />
                 </Col>
                 <Col md={9} className="mx-auto text-start">
-                    <p class="text-start">
+                    <p className="text-start">
                         Absolutely Gorgeous Interiors is a full service <strong>interior construction contractor</strong> in Traverse City, Michigan, that is dedicated to giving you a high-quality service that will exceed your expectations. We are focused on client satisfaction, which means that we will be able to provide you with a service that will make all of your dreams come true.
                     </p>
                     <p className="text-start">

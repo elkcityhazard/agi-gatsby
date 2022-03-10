@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { useScrollRestoration } from 'gatsby'
+
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 import { FaPhoneSquareAlt, FaEnvelopeSquare, FaDirections, FaFacebookSquare, FaInstagramSquare, FaRegCalendarAlt } from 'react-icons/fa'
@@ -11,10 +13,12 @@ import SEO from '../components/SEO';
 
 export default function ContactUs({ location }) {
     const title = `Contact Absolutely Gorgeous Interiors`
+
+    const contactScrollRest = useScrollRestoration(`contact-us-container`)
     return (
         <>
             <SEO title={`Contact Us`} description={`Contact Absolutely Gorgeous Interiors For A Free Consultation`} location={location}></SEO>
-            <Container as="main">
+            <Container as="main" {...contactScrollRest}>
                 <Row className="p-3">
                     <Col className="text-center mx-auto p-3">
                         <h1 className="h1 mb-3">{title}</h1>

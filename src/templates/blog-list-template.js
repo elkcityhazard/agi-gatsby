@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 import slugify from 'slugify';
 
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery, useScrollRestoration } from 'gatsby'
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -16,6 +16,8 @@ import SEO from '../components/SEO'
 import '../pages/blog.scss'
 
 export default function BlogListTemplate(props) {
+
+    const blogListRest = useScrollRestoration(`container-header-gradient`)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -42,7 +44,7 @@ export default function BlogListTemplate(props) {
     return (
         <>
             <SEO title={title} description={description} location={props.location}></SEO>
-            <Container className="header-gradient">
+            <Container className="header-gradient" {...blogListRest}>
                 <Row as="header">
                     <Col sm={12} lg={9} className="mx-auto p-3 text-center">
                         <h1>Keep Up On DIY Tips & Industry Updates</h1>

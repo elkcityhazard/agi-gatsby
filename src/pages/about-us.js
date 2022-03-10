@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, useScrollRestoration } from 'gatsby'
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 
 import { convertToBgImage } from "gbimage-bridge"
@@ -22,6 +22,8 @@ import "aos/dist/aos.css";
 import SEO from '../components/SEO'
 
 function AboutUs({ location, data }) {
+
+  const aboutScrollRest = useScrollRestoration(`about-us-background-image-section`)
 
   const title = `Our Story - Absolutely Gorgeous Interiors`
   const subtitle = `Building For Beauty & Accessibility`
@@ -125,13 +127,15 @@ function AboutUs({ location, data }) {
         {...bgImage}
         preserveStackingContext
       >
-        <Container fluid as="header" style={{
-          background: `rgba(0,0,0,0.5)`,
-          height: `100%`,
-          minHeight: `75vh`,
-          minWidth: `1000`,
-          display: `grid`
-        }}
+        <Container fluid as="header"
+          {...aboutScrollRest}
+          style={{
+            background: `rgba(0,0,0,0.5)`,
+            height: `100%`,
+            minHeight: `75vh`,
+            minWidth: `1000`,
+            display: `grid`
+          }}
           className="p-5"
         >
           <Row className="d-flex justify-content-center align-items-center text-center">
