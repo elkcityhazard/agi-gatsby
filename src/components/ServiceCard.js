@@ -38,7 +38,7 @@ export default function ServiceCard({ text, icon, aos, image, description, url }
             <Card.Body>
                 <Card.Title className="icon h3">{text}</Card.Title>
                 <Card.Text>{description}</Card.Text>
-                <Button as={Link} to={url} variant="warning" className="d-block">{text}</Button>
+                <Button as={Link} to={url} variant="warning" className="d-block text-dark">{text}</Button>
             </Card.Body>
         </Card>
     )
