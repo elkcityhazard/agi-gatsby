@@ -9,7 +9,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://agi-gatsby.vercel.app/",
+    siteUrl: "https://www.agitraversebay.com",
     description: "We are a luxury interior construction company In Traverse City Michigan.  We specialize in concrete, tile, flooring, and accessible building.",
     title: "Absolutely Gorgeous Interiors",
     twitterImg: `./src/images/logos/social/twitter/share.png`,
@@ -18,6 +18,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
+    `gatsby-plugin-sitemap`
     {
       resolve: `gatsby-transformer-remark`,
       options: {
