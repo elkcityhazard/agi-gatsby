@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import links from '../constants/navlinks';
@@ -12,12 +12,15 @@ import { Navbar, NavDropdown, Nav, Container } from 'react-bootstrap'
 import './MainNavBar.scss'
 
 export default function MainNavBar() {
+
+  const [expanded, setExpanded] = useState(false)
+
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expanded={expanded} expand="lg" bg="dark" variant="dark">
         <Container fluid className="px-3">
           <Navbar.Brand as={Link} to="/"><StaticImage src="../images/logos/logo-ideas/agi-logo-idea-840x540-light-symbol.png" alt="brand logo" height={125} width={200} loading="lazy" placeholder="traced_svg" /></Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               {links.map((link, index) => {
@@ -27,7 +30,7 @@ export default function MainNavBar() {
                       {link.children.map((child, index) => {
                         return (
                           <div key={index}>
-                            <NavDropdown.Item as={Link} to={child.url} variant="dark" bg="dark" title="child.text">{child.text}</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={child.url} onClick={() => setExpanded(false)} variant="dark" bg="dark" title="child.text">{child.text}</NavDropdown.Item>
                             <NavDropdown.Divider />
                           </div>
                         )
@@ -35,7 +38,7 @@ export default function MainNavBar() {
                     </NavDropdown>
                   )
                 } else {
-                  return <Nav.Link as={Link} key={index} to={link.url} bg="dark" variant="dark">{link.text}</Nav.Link>
+                  return <Nav.Link as={Link} key={index} to={link.url} onClick={() => setExpanded(false)} bg="dark" variant="dark">{link.text}</Nav.Link>
                 }
               })}
             </Nav>
