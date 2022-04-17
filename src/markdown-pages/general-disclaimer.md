@@ -1,6 +1,6 @@
 ---
 title: "General Disclaimer - Absolutely Gorgeous Interiors, LLC"
-date: "2022-02-12"
+date: 2022-02-12
 slug: "general-disclaimer"
 description: " Absolutely Gorgeous Interiors provides ADA Contracting and building Services, and home remodels for people with disabilities, senior citizens, and other individuals."
 ---

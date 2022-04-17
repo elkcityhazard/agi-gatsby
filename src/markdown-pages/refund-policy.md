@@ -1,6 +1,6 @@
 ---
 title: "Refund Policy - Absolutely Gorgeous Interiors"
-date: "2022-02-12"
+date: 2022-02-12
 slug: "refund-policy"
 description: "We are an accessible construction firm based in Traverse City, Michigan that specializes in building and remodeling projects that are wheelchair accessible."
 ---

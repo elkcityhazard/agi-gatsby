@@ -1,6 +1,6 @@
 ---
 title: "Privacy Policy"
-date: "2022-02-12"
+date: 2022-02-12
 slug: "privacy-policy"
 description: " We create and build beautiful interiors, provide American With Disabilities Act Contracting and building Services, and home remodels."
 ---

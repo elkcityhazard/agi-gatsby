@@ -5,11 +5,11 @@ require("dotenv").config({
 })
 
 
-
+const siteUrl = process.env.URL || `https://agitraversebay.com`;
 
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://agitraversebay.com",
+    siteUrl: "https://agitraversebay.com/",
     description: "We are a luxury interior construction company In Traverse City Michigan.  We specialize in concrete, tile, flooring, and accessible building.",
     title: "Absolutely Gorgeous Interiors",
     twitterImg: `./src/images/logos/social/twitter/share.png`,
@@ -18,7 +18,14 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
+    `gatsby-plugin-robots-txt`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/`,
+        excludes: [`/tags`, `/categories`, `/category`, `/null`],
+      }
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

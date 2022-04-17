@@ -1,6 +1,6 @@
 ---
 title: "Shipping Policy - Absolutely Gorgeous Interiors"
-date: "2022-02-12"
+date: 2022-02-12
 slug: "shipping-policy"
 description: "Absolutely Gorgeous Interiors provides American with Disabilities Act Contracting and building Services, and home remodels. We design and build accessible luxury homes, apartments and day care facilities. We are proud to build premium quality handicap accessible construction."
 ---
