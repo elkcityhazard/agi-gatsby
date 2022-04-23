@@ -27,13 +27,14 @@ export default function ({ data, location }) {
     category,
     tags,
     publishDate,
-    content: { content },
+    content: {  childMarkdownRemark: { html } },
     description: { description },
     featuredImage: { gatsbyImageData },
     slug,
     title
   } } = data
 
+  console.log(html)
 
   // Get Image
 
@@ -86,8 +87,8 @@ export default function ({ data, location }) {
       <Container as="main">
         <Row className="p-3">
           <Col as="article" xl={8} className="mx-auto p-3 text-center">
-            <div className="content-wrapper">
-              {content}
+            <div className="content-wrapper" dangerouslySetInnerHTML={{__html: html}}>
+              
             </div>
           </Col>
           <Col as="aside" xl={4}>
@@ -107,7 +108,9 @@ query getSinglePost($slug: String!) {
       category
       tags
       content {
-        content
+        childMarkdownRemark {
+          html
+        }
       }
       description {
         description
