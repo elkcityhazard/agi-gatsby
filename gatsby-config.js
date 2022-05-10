@@ -23,6 +23,76 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         excludes: [`/tags`, `/categories`, `/category`, `/null`],
+        query: `
+        {
+          allContentfulService {
+            nodes {
+              updatedAt
+              slug
+            }
+          }
+          contentfulAboutUsPage {
+            id
+            updatedAt
+            slug
+          }
+          allContentfulBlogPost {
+            nodes {
+              updatedAt
+              slug
+            }
+          }
+        }
+        `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({
+          allContentfulService,
+          allContentfulBlogPost
+        }) => {
+          const posts = allContentfulBlogPost.nodes.map((node) => {
+            const {slug, updatedAt} = node
+            return {
+              path: `/blog/${slug}`,
+              lastmod: updatedAt,
+              changefreq: "never",
+              priority: 0.7,
+            }
+          })
+          const services = allContentfulService.nodes.map((node) => {
+            const {slug, updatedAt} = node
+            return {
+              path: `/services/${slug}`,
+              lastmod: updatedAt,
+              changefreq: "never",
+              priority: 0.7,
+            }
+
+          })
+
+          const home = {
+            path: '/',
+            lastmod: posts[0].lastmod,
+            changefreq: 'never',
+            priority: 0.7
+          }
+
+          const blog = {
+            path: '/blog',
+            lastmod: posts[0].lastmod,
+            changefreq: 'never',
+            priority: 0.7
+          }
+
+          return [...services, ...posts, home, blog ]
+        },
+        serialize: ({path, lastmod, changefreq, priority}) => {
+          return {
+            url: path,
+            lastmod,
+            changefreq,
+            priority
+          }
+        }
       }
     },
     {
